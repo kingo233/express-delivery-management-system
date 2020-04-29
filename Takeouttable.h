@@ -6,7 +6,7 @@ public:
 	~Takeouttable();
 
 private:
-	const int maxcells;
+
 };
 
 
