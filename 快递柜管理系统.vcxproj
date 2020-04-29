@@ -139,10 +139,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Takeouttable.cpp" />
+    <ClCompile Include="Takeoutcell.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Takeouttable.h" />
+    <ClInclude Include="Takeoutcell.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

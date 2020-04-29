@@ -18,12 +18,12 @@
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Takeouttable.cpp">
+    <ClCompile Include="Takeoutcell.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Takeouttable.h">
+    <ClInclude Include="Takeoutcell.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
