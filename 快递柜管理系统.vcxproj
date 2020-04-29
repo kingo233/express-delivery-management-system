@@ -141,7 +141,7 @@
     <ClCompile Include="Compare.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Takeout.cpp" />
-    <ClCompile Include="TakeoutCell.cpp" />
+    <ClCompile Include="ExpressCell.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Compare.h" />
