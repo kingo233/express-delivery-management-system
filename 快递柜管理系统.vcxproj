@@ -138,11 +138,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Compare.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Takeoutcell.cpp" />
+    <ClCompile Include="TakeoutCell.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Takeoutcell.h" />
+    <ClInclude Include="Compare.h" />
+    <ClInclude Include="TakeoutCell.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

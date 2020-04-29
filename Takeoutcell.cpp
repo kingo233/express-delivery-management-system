@@ -1,8 +1,8 @@
-#include "Takeoutcell.h"
-Takeoutcell::Takeoutcell()
+#include "TakeoutCell.h"
+TakeoutCell::TakeoutCell()
 {
 }
 
-Takeoutcell::~Takeoutcell()
+TakeoutCell::~TakeoutCell()
 {
 }
