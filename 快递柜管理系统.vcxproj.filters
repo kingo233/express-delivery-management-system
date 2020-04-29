@@ -24,12 +24,18 @@
     <ClCompile Include="Compare.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Takeout.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="TakeoutCell.h">
+    <ClInclude Include="Compare.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Compare.h">
+    <ClInclude Include="Express.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ExpressCell.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

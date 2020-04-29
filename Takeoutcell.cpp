@@ -1,8 +1,7 @@
-#include "TakeoutCell.h"
-TakeoutCell::TakeoutCell()
-{
-}
+#include "ExpressCell.h"
+ExpressCell::ExpressCell() {
 
-TakeoutCell::~TakeoutCell()
-{
+}
+ExpressCell::~ExpressCell() {
+
 }
