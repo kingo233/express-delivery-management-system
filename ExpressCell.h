@@ -4,7 +4,6 @@
 #include "Express.h"
 using namespace std;
 
-
 //表示一个快递格
 class ExpressCell
 {

@@ -21,10 +21,13 @@
     <ClCompile Include="Compare.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Takeout.cpp">
+    <ClCompile Include="ExpressCell.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="ExpressCell.cpp">
+    <ClCompile Include="Express.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ExpressTable.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -36,6 +39,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="ExpressCell.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ExpressTable.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

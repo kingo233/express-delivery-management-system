@@ -139,14 +139,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Compare.cpp" />
+    <ClCompile Include="ExpressTable.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Takeout.cpp" />
+    <ClCompile Include="Express.cpp" />
     <ClCompile Include="ExpressCell.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Compare.h" />
     <ClInclude Include="Express.h" />
     <ClInclude Include="ExpressCell.h" />
+    <ClInclude Include="ExpressTable.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
