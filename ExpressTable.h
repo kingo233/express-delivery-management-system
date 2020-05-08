@@ -6,7 +6,7 @@ public:
 	ExpressTable();
 	~ExpressTable();
 
-	
+	const int maxn = 500;
 	ExpressCell* MyCells[500];
 
 };
