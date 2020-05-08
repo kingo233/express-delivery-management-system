@@ -34,6 +34,7 @@ ExpressTable::ExpressTable()
 		}
 	}
 
+	fclose(FilePointer);
 }
 
 ExpressTable::~ExpressTable()
