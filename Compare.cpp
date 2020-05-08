@@ -1,18 +1,17 @@
 #include "Compare.h"
-#include"Express.h"
 #include<iostream>
 using namespace std;
 bool Compare::CompanyNameAscendingCmp(ExpressCell a, ExpressCell b) 
 {
-	return a.CompanyName < b.CompanyName;
+	return a.ExpressPointer->CompanyName < b.ExpressPointer->CompanyName;
 }
 bool Compare::OwnerNameAscendingCmp(ExpressCell a, ExpressCell b) 
 {
-	return a.OwnerName < b.OwnerName;
+	return a.ExpressPointer->OwnerName < b.ExpressPointer->OwnerName;
 }
 bool Compare::PhoneNumerAscendingCmp(ExpressCell a, ExpressCell b) 
 {
-	return a.PhoneNumber < b.PhoneNumber;
+	return a.ExpressPointer->PhoneNumber < b.ExpressPointer->PhoneNumber;
 }
 bool Compare::IndexAscendingCmp(ExpressCell a, ExpressCell b) 
 {
@@ -20,19 +19,19 @@ bool Compare::IndexAscendingCmp(ExpressCell a, ExpressCell b)
 }
 bool Compare::TimeAscendingCmp(ExpressCell a, ExpressCell b) 
 {
-	return a.Time < b.Timer;
+	return a.Time < b.Time;
 }
 bool Compare::CompanyNameAscendingCmp(ExpressCell a, ExpressCell b)
 {
-	return a.CompanyName > b.CompanyName;
+	return a.ExpressPointer->CompanyName > b.ExpressPointer->CompanyName;
 }
 bool Compare::OwnerNameAscendingCmp(ExpressCell a, ExpressCell b)
 {
-	return a.OwnerName > b.OwnerName;
+	return a.ExpressPointer->OwnerName > b.ExpressPointer->OwnerName;
 }
 bool Compare::PhoneNumerAscendingCmp(ExpressCell a, ExpressCell b)
 {
-	return a.PhoneNumber > b.PhoneNumber;
+	return a.ExpressPointer->PhoneNumber > b.ExpressPointer->PhoneNumber;
 }
 bool Compare::IndexAscendingCmp(ExpressCell a, ExpressCell b)
 {

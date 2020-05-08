@@ -6,7 +6,7 @@ int main()
 
 	//创建快递柜对象，查询子目录下的数据文件判断有没有已有的，有就读取数据
 	//CraeteExpressTable();
-	system("color d0");
+
 	while (1) 
 	{
 		string op;
