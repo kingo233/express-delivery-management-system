@@ -39,5 +39,5 @@ bool Compare::IndexDescendingCmp(ExpressCell a, ExpressCell b)
 }
 bool Compare::TimeDescendingCmp(ExpressCell a, ExpressCell b)
 {
-	return a.Time > b.Timer;
+	return a.Timer > b.Timer;
 }
