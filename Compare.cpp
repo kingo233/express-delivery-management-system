@@ -19,7 +19,7 @@ bool Compare::IndexAscendingCmp(ExpressCell a, ExpressCell b)
 }
 bool Compare::TimeAscendingCmp(ExpressCell a, ExpressCell b) 
 {
-	return a.Time < b.Time;
+	return a.Timer < b.Timer;
 }
 bool Compare::CompanyNameAscendingCmp(ExpressCell a, ExpressCell b)
 {
@@ -39,5 +39,5 @@ bool Compare::IndexAscendingCmp(ExpressCell a, ExpressCell b)
 }
 bool Compare::TimeAscendingCmp(ExpressCell a, ExpressCell b)
 {
-	return a.Time > b.Timer;
+	return a.Timer > b.Timer;
 }
