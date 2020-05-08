@@ -35,7 +35,7 @@ bool Compare::PhoneNumerAscendingCmp(ExpressCell a, ExpressCell b)
 }
 bool Compare::IndexAscendingCmp(ExpressCell a, ExpressCell b)
 {
-	return a.Index > b.Index;
+	return a.Index >  b.Index;
 }
 bool Compare::TimeAscendingCmp(ExpressCell a, ExpressCell b)
 {
