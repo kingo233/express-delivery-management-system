@@ -1,6 +1,7 @@
 #include <iostream>
 #include <Windows.h>
 #include "UIControl.h"
+#include "CharacterControl.h"
 using namespace std;
 int main() 
 {
@@ -22,24 +23,23 @@ int main()
 		else if (op == "1")
 		{
 			cout << "快递员";
-			//Expressman();
+			CharacterControl::ExpressMan();
 			//save();
 		}
 		else if (op == "2")
 		{
 			cout << "取件人";
-			//Receiver();
+			CharacterControl::Receiver();
 			//save();
 		}
 		else if (op == "3")
 		{
-			cout << "管理员";
-			//Administrator();
+			CharacterControl::Adminstrator();
 			//save();
 		}
 		else if (op == "4")
 		{
-			
+			CharacterControl::UISetting();
 		}
 		else 
 		{

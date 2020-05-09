@@ -138,6 +138,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CharacterControl.cpp" />
     <ClCompile Include="Compare.cpp" />
     <ClCompile Include="ExpressTable.cpp" />
     <ClCompile Include="main.cpp" />
@@ -146,6 +147,7 @@
     <ClCompile Include="UIControl.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CharacterControl.h" />
     <ClInclude Include="Compare.h" />
     <ClInclude Include="Express.h" />
     <ClInclude Include="ExpressCell.h" />
