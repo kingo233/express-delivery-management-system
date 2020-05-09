@@ -19,11 +19,11 @@ void CharacterControl::Adminstrator()
 }
 void CharacterControl::UISettingSave(string color) 
 {
-	FILE* Filepointer;
-	const char Filename[20] = "cofig.ini";
-	if (fopen_s(&Filepointer, Filename, "w") == 0 && Filepointer != NULL)
+	FILE* FilePointer;
+	const char FileName[20] = "cofig.ini";
+	if (fopen_s(&FilePointer, FileName, "w") == 0 && FilePointer != NULL)
 	{
-		fwrite(&color, color.length(), 1, Filepointer);
+		fwrite(&color, color.length(), 1, FilePointer);
 	}
 	else
 	{
