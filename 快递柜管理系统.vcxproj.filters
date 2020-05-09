@@ -45,4 +45,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\Administrator\Desktop\快递柜管理系统.docx">
+      <Filter>资源文件</Filter>
+    </None>
+  </ItemGroup>
 </Project>
