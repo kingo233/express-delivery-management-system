@@ -1,5 +1,5 @@
 #pragma once
-static class CharacterControl
+class CharacterControl
 {
 public:
 	static void ExpressMan();

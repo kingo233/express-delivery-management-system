@@ -1,5 +1,5 @@
 #pragma once
-static class UIControl
+class UIControl
 {
 public:
 	static void ShowHome();
