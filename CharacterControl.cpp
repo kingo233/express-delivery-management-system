@@ -2,7 +2,7 @@
 #include "UIControl.h"
 #include <Windows.h>
 #include <iostream>
-#include<string>
+#include<fstream>
 using namespace std;
 void CharacterControl::ExpressMan() 
 {
@@ -19,16 +19,15 @@ void CharacterControl::Adminstrator()
 }
 void CharacterControl::UISettingSave(string color) 
 {
-	FILE* FilePointer;
+	ofstream fout;
 	const char FileName[20] = "cofig.ini";
-	if (fopen_s(&FilePointer, FileName, "w") == 0 && FilePointer != NULL)
-	{
-		fwrite(&color, color.length(), 1, FilePointer);
-	}
-	else
+	fout.open(FileName);
+	if (!fout.is_open())
 	{
 		cout << "文件打开失败" << endl;
 	}
+	fout << color << endl;
+	fout.close();
 }
 void CharacterControl::UISetting()
 {
