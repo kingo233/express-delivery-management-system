@@ -16,6 +16,10 @@ void CharacterControl::Adminstrator()
 {
 
 }
+void CharacterControl::UISettingSave(string color) 
+{
+
+}
 void CharacterControl::UISetting()
 {
 	while (true) {

@@ -6,5 +6,6 @@ public:
 	static void Receiver();
 	static void Adminstrator();
 	static void UISetting();
+	static void UISettingSave(string color);
 };
 
