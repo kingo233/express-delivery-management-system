@@ -1,10 +1,11 @@
 #pragma once
 static class UIControl
 {
-	void ShowHome();
-	void ShowExpressMan();
-	void ShowReceiver();
-	void ShowAdminstrator();
-	void ShowUISetting();
+public:
+	static void ShowHome();
+	static void ShowExpressMan();
+	static void ShowReceiver();
+	static void ShowAdminstrator();
+	static void ShowUISetting();
 };
 
