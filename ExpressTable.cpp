@@ -18,7 +18,7 @@ ExpressTable::ExpressTable()
 	else
 	{
 		//文件不存在
-		//创建数据文件
+		//换用wb方式创建数据文件
 		if (fopen_s(&FilePointer, FileName, "wb") == 0);
 		else 
 		{
@@ -39,6 +39,7 @@ ExpressTable::ExpressTable()
 
 ExpressTable::~ExpressTable()
 {
+	Save();
 	for (int i = 0; i < MAXN; i++) {
 		if (MyCells[i])delete MyCells[i];
 	}
