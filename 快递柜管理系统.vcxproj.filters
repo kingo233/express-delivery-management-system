@@ -18,6 +18,32 @@
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Compare.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ExpressCell.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Express.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ExpressTable.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Compare.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Express.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ExpressCell.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ExpressTable.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="C:\Users\Administrator\Desktop\快递柜管理系统.docx">
