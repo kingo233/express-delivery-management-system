@@ -10,7 +10,7 @@ ExpressTable::ExpressTable()
 	if (fopen_s(&FilePointer,FileName,"rb") == 0 && FilePointer != NULL ) 
 	{
 		//打开文件成功
-		for (int i = 0; i < maxn; i++) 
+		for (int i = 0; i < MAXN; i++) 
 		{
 			fread(MyCells[i], sizeof(ExpressCell), 1, FilePointer);
 		}
@@ -27,9 +27,9 @@ ExpressTable::ExpressTable()
 		}
 
 		//为MyCells初始化
-		for (int i = 0; i < maxn; i++)
+		for (int i = 0; i < MAXN; i++)
 		{
-			MyCells[i] = new ExpressCell;
+			MyCells[i] = new ExpressCell();
 			MyCells[i]->Index = i;
 		}
 	}
@@ -39,6 +39,8 @@ ExpressTable::ExpressTable()
 
 ExpressTable::~ExpressTable()
 {
-	
+	for (int i = 0; i < MAXN; i++) {
+		if (MyCells[i])delete MyCells[i];
+	}
 }
 

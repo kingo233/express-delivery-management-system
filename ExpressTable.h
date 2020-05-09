@@ -8,7 +8,7 @@ public:
 	void Save();
 
 
-	const int maxn = 500;
+	const int MAXN = 500;
 	ExpressCell* MyCells[500];
 
 };
