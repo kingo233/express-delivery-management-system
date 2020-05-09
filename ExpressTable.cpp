@@ -36,7 +36,10 @@ ExpressTable::ExpressTable()
 
 	fclose(FilePointer);
 }
+void ExpressTable::Save() 
+{
 
+}
 ExpressTable::~ExpressTable()
 {
 	Save();
