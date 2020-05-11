@@ -88,7 +88,7 @@ void CharacterControl::UISetting()
 	while (true) {
 		system("cls");
 		cout << "请选择字体背景颜色设置：" << endl << "1.白色背景红色字体" << endl << "2.黑色背景白色字体" << endl
-			<< "3.紫色背景黄色字体（猛男专用）" << endl << "4.绿色背景黑色字体（护眼模式）" << endl;
+			<< "3.紫色背景黄色字体（猛男专用）" << endl << "4.绿色背景黑色字体（护眼模式）" << "0.返回主菜单" <<endl;
 		string cop;
 		cin >> cop;
 		if (cop == "1" || cop == "2" || cop == "3" || cop == "4")
@@ -98,6 +98,7 @@ void CharacterControl::UISetting()
 			cout << "设置成功！";
 			break;
 		}
+		else if (cop == "0") return;
 		else {
 			system("cls");
 			cout << "请输入正确的操作数！";
