@@ -81,7 +81,10 @@ void CharacterControl::UISettingSave(string color)
 void CharacterControl::UISetting()
 {
 	map<string, string> mp;
-	
+	mp["1"] = "color 74";
+	mp["2"] = "color 07";
+	mp["3"] = "color 56";
+	mp["4"] = "color 30";
 	while (true) {
 		system("cls");
 		cout << "请选择字体背景颜色设置：" << endl << "1.白色背景红色字体" << endl << "2.黑色背景白色字体" << endl
@@ -90,7 +93,7 @@ void CharacterControl::UISetting()
 		cin >> cop;
 		if (cop == "1" || cop == "2" || cop == "3" || cop == "4")
 		{
-			system(cop.c_str());
+			system(mp[cop].c_str());
 			system("cls");
 			cout << "设置成功！";
 			break;
