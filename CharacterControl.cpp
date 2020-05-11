@@ -55,12 +55,12 @@ void CharacterControl::ExpressMan(ExpressTable& Table)
 		}
 	}
 }
-void CharacterControl::Receiver() 
+void CharacterControl::Receiver(ExpressTable& Table) 
 {
 
 }
 
-void CharacterControl::Adminstrator() 
+void CharacterControl::Adminstrator(ExpressTable& Table) 
 {
 
 }
