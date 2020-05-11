@@ -3,6 +3,7 @@
 #include <Windows.h>
 #include <iostream>
 #include <fstream>
+#include <map>
 using namespace std;
 void CharacterControl::ExpressMan(ExpressTable& Table)
 {
@@ -79,6 +80,8 @@ void CharacterControl::UISettingSave(string color)
 }
 void CharacterControl::UISetting()
 {
+	map<string, string> mp;
+	
 	while (true) {
 		system("cls");
 		cout << "请选择字体背景颜色设置：" << endl << "1.白色背景红色字体" << endl << "2.黑色背景白色字体" << endl
@@ -87,17 +90,7 @@ void CharacterControl::UISetting()
 		cin >> cop;
 		if (cop == "1" || cop == "2" || cop == "3" || cop == "4")
 		{
-			switch (cop)
-			{
-			case "1": system("color 74");
-				break;
-			case "2": system("color 07");
-				break;
-			case "3": system("color 56");
-				break;
-			case "4": system("color 30");
-				break;
-			} cop;
+			system(cop.c_str());
 			system("cls");
 			cout << "设置成功！";
 			break;
