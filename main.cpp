@@ -1,6 +1,5 @@
 #include <iostream>
 #include <Windows.h>
-#include "UIControl.h"
 #include "CharacterControl.h"
 #include "ExpressTable.h"
 using namespace std;
@@ -26,13 +25,11 @@ int main()
 		}
 		else if (op == "1")
 		{
-			cout << "快递员";
 			CharacterControl::ExpressMan(Table);
 			//save();
 		}
 		else if (op == "2")
 		{
-			cout << "取件人";
 			CharacterControl::Receiver();
 			//save();
 		}

@@ -30,9 +30,6 @@
     <ClCompile Include="ExpressTable.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="UIControl.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="CharacterControl.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -48,9 +45,6 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="ExpressTable.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="UIControl.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="CharacterControl.h">

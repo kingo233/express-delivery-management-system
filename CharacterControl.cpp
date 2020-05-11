@@ -9,7 +9,10 @@ void CharacterControl::ExpressMan(ExpressTable& Table)
 {
 	while (true) 
 	{
-		UIControl::ShowExpressMan();
+		system("cls");
+		cout << "选择操作：" << endl;
+		cout << "0.返回主界面" << endl << "1.放入快递" << endl;
+
 		Express e;
 		string ex;
 		cin >> ex;

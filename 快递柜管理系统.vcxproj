@@ -144,7 +144,6 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Express.cpp" />
     <ClCompile Include="ExpressCell.cpp" />
-    <ClCompile Include="UIControl.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CharacterControl.h" />
@@ -152,7 +151,6 @@
     <ClInclude Include="Express.h" />
     <ClInclude Include="ExpressCell.h" />
     <ClInclude Include="ExpressTable.h" />
-    <ClInclude Include="UIControl.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
