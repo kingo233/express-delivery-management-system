@@ -85,47 +85,28 @@ void CharacterControl::UISetting()
 			<< "3.紫色背景黄色字体（猛男专用）" << endl << "4.绿色背景黑色字体（护眼模式）" << endl;
 		string cop;
 		cin >> cop;
-		if (cop == "1")
+		if (cop == "1" || cop == "2" || cop == "3" || cop == "4")
 		{
-			system("color 74");
+			switch (cop)
+			{
+			case "1": system("color 74");
+				break;
+			case "2": system("color 07");
+				break;
+			case "3": system("color 56");
+				break;
+			case "4": system("color 30");
+				break;
+			} cop;
 			system("cls");
 			cout << "设置成功！";
-			Sleep(1000);
-			system("cls");
-			break;
-		}
-		else if (cop == "2")
-		{
-			system("color 07");
-			system("cls");
-			cout << "设置成功！";
-			Sleep(1000);
-			system("cls");
-			break;
-	}
-		else if (cop == "3")
-		{
-			system("color 56");
-			system("cls");
-			cout << "设置成功！";
-			Sleep(1000);
-			system("cls");
-			break;
-		}
-		else if (cop == "4")
-		{
-			system("color 20");
-			system("cls");
-			cout << "设置成功！";
-			Sleep(1000);
-			("cls");
 			break;
 		}
 		else {
 			system("cls");
 			cout << "请输入正确的操作数！";
-			Sleep(1000);
-			system("cls");
 		}
+		Sleep(1000);
+		system("cls");
 	}
 }
