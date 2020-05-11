@@ -6,8 +6,8 @@ class CharacterControl
 {
 public:
 	static void ExpressMan(ExpressTable& Table);
-	static void Receiver();
-	static void Adminstrator();
+	static void Receiver(ExpressTable& Table);
+	static void Adminstrator(ExpressTable& Table);
 	static void UISetting();
 	static void UISettingSave(string color);
 };
