@@ -1,5 +1,4 @@
 #include "CharacterControl.h"
-#include "UIControl.h"
 #include <Windows.h>
 #include <iostream>
 #include <fstream>
@@ -12,50 +11,46 @@ void CharacterControl::ExpressMan(ExpressTable& Table)
 		system("cls");
 		cout << "选择操作：" << endl;
 		cout << "0.返回主界面" << endl << "1.放入快递" << endl;
+		//界面控制
 
-		Express e;
-		string ex;
-		cin >> ex;
+
+		string op;
+		cin >> op;
 		int i;
-		if (ex == "1")
+		if (op == "1")
 		{
-			for (i = 0; i <= 500; i++)
+			int Index = Table.IsFull();
+			if (Index == -1)
 			{
-				if (Table.MyCells[i] == 0)
-				{
-					Table.MyCells[i] = new ExpressCell();
-					if (Table.PlaceExpress(e))
-					{
-						struct tm* Time;
-						Table.MyCells[i]->Index = i;
-						Table.MyCells[i]->Timer = time(NULL);
-						Time = localtime(&Table.MyCells[i]->Timer);
-						Table.MyCells[i]->StrTime = asctime(Time);
-						break;
-					}
-					else
-					{
-						cout << "快递放入失败" << endl;
-						break;
-					}
-				}
-
+				cout << "对不起，快递柜已满！" << endl;
+				return;
 			}
-			if (i > 500)
+			else 
 			{
-				cout << "快递格已满,无法放入" << endl;
+				cout << "请输入快递收件人号码、收件人姓名和快递公司名,用空格隔开" << endl;
+				int PhoneNumer;
+				string OwnerName, CompanyName;
+				cin >> PhoneNumer >> OwnerName >> CompanyName;
+				Express e(PhoneNumer, OwnerName, CompanyName);
+				if (Table.PlaceExpress(e, Index)) 
+				{
+					cout << "放入成功！" << endl;
+				}
+				else 
+				{
+					cout << "放入失败！" << endl;
+				}
 			}
 		}
-		else if (ex == "0")
+		else if (op == "0")
 		{
-			system("cls");
 			return;
 		}
 		else
 		{
 			system("cls");
 			cout << "请输入正确的操作数！";
-			Sleep(1000);
+			Sleep(1000);//暂停以便于用户看清楚错误信息
 			system("cls");
 		}
 	}
