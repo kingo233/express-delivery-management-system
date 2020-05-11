@@ -1,15 +1,14 @@
 #include "CharacterControl.h"
-#include "ExpressTable.h"
 #include "UIControl.h"
 #include <Windows.h>
 #include <iostream>
-#include<fstream>
+#include <fstream>
 using namespace std;
-void CharacterControl::ExpressMan()
+void CharacterControl::ExpressMan(ExpressTable& Table)
 {
-	while (true) {
+	while (true) 
+	{
 		UIControl::ShowExpressMan();
-		ExpressTable Table;
 		Express e;
 		string ex;
 		cin >> ex;
@@ -81,7 +80,9 @@ void CharacterControl::UISettingSave(string color)
 void CharacterControl::UISetting()
 {
 	while (true) {
-		UIControl::ShowUISetting();
+		system("cls");
+		cout << "请选择字体背景颜色设置：" << endl << "1.白色背景红色字体" << endl << "2.黑色背景白色字体" << endl
+			<< "3.紫色背景黄色字体（猛男专用）" << endl << "4.绿色背景黑色字体（护眼模式）" << endl;
 		string cop;
 		cin >> cop;
 		if (cop == "1")
