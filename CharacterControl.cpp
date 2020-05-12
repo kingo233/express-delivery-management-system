@@ -3,6 +3,8 @@
 #include <iostream>
 #include <fstream>
 #include <map>
+#include<sstream>
+#include<string>
 using namespace std;
 void CharacterControl::ExpressMan(ExpressTable& Table)
 {
@@ -83,15 +85,18 @@ void CharacterControl::UISettingLoad()
 	mp["2"] = "color 07";
 	mp["3"] = "color 56";
 	mp["4"] = "color 30";
-	FILE* FilePointer;
+	ifstream fin;
 	const char FileName[20] = "cofig.ini";
-	if (fopen_s(&FilePointer, FileName, "rb") == 0 && FilePointer != NULL)
+	fin.open(FileName);
+	if (fin.is_open())
 	{
 		string cop;
-		fscanf_s(FilePointer, "s", cop);
+		fin>> cop;
 		system(mp[cop].c_str());
+		cout << "用户字体背景数据加载成功";
+		Sleep(1000);
 	}
-	if(FilePointer)fclose(FilePointer);
+	fin.close();
 }
 void CharacterControl::UISetting()
 {
