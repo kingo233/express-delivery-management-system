@@ -93,6 +93,7 @@ void CharacterControl::UISettingLoad()
 		string cop;
 		fin>> cop;
 		system(mp[cop].c_str());
+		system("cls");
 		cout << "用户字体背景数据加载成功";
 		Sleep(1000);
 	}
