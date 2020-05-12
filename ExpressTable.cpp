@@ -62,11 +62,14 @@ bool ExpressTable::PlaceExpress(Express& e, int Postion)
 	//time函数计算time_t整数，返回的是当前时间
 	MyCells[Postion]->Timer = time(NULL);
 	//构造tm结构体，内部包含各种时间信息
-//	struct tm* Tblock = localtime(&MyCells[Postion]->Timer);
+	struct tm* Tblock=NULL;
+	localtime_s(Tblock, &MyCells[Postion]->Timer);
 	
 	if (Tblock)
 	{ 
-//		MyCells[Postion]->StrTime = string(asctime(Tblock));
+		char buffer[50];
+		asctime_s(buffer, 50, Tblock);
+		MyCells[Postion]->StrTime = string(buffer);
 	}
 	else
 	{
