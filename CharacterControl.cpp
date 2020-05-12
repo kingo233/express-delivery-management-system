@@ -93,9 +93,6 @@ void CharacterControl::UISettingLoad()
 		string cop;
 		fin>> cop;
 		system(mp[cop].c_str());
-		system("cls");
-		cout << "用户字体背景数据加载成功";
-		Sleep(1000);
 	}
 	fin.close();
 }
@@ -109,7 +106,7 @@ void CharacterControl::UISetting()
 	while (true) {
 		system("cls");
 		cout << "请选择字体背景颜色设置：" << endl << "1.白色背景红色字体" << endl << "2.黑色背景白色字体" << endl
-			<< "3.紫色背景黄色字体（猛男专用）" << endl << "4.绿色背景黑色字体（护眼模式）" << "0.返回主菜单" <<endl;
+			<< "3.紫色背景黄色字体（猛男专用）" << endl << "4.绿色背景黑色字体（护眼模式）" << endl << "0.返回主菜单" << endl;
 		string cop;
 		cin >> cop;
 		if (cop == "1" || cop == "2" || cop == "3" || cop == "4")
