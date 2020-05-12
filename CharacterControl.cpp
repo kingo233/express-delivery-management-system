@@ -90,13 +90,8 @@ void CharacterControl::UISettingLoad()
 		string cop;
 		fscanf_s(FilePointer, "s", cop);
 		system(mp[cop].c_str());
-		system("cls");
-		cout << "用户设置读取成功！";
 	}
-	else cout << "用户首次使用，默认颜色背景，可选择手动更改";
-	Sleep(1000);
-	system("cls");
-	fclose(FilePointer);
+	if(FilePointer)fclose(FilePointer);
 }
 void CharacterControl::UISetting()
 {

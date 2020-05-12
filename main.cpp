@@ -9,7 +9,7 @@ int main()
 	//创建快递柜对象，查询子目录下的数据文件判断有没有已有的，有就读取数据
 	ExpressTable Table;
 	cout << "欢迎使用快递柜管理系统！" << endl;
-	UISettingLoad();
+	CharacterControl::UISettingLoad();
 	while (1) 
 	{
 		system("cls");
@@ -30,12 +30,12 @@ int main()
 		}
 		else if (op == "2")
 		{
-			CharacterControl::Receiver();
+			CharacterControl::Receiver(Table);
 			//save();
 		}
 		else if (op == "3")
 		{
-			CharacterControl::Adminstrator();
+			CharacterControl::Adminstrator(Table);
 			//save();
 		}
 		else if (op == "4")
