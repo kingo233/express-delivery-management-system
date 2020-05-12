@@ -13,7 +13,15 @@ ExpressTable::ExpressTable()
 		//打开文件成功
 		for (int i = 0; i < MAXN; i++) 
 		{
-			fread(MyCells[i], sizeof(ExpressCell), 1, FilePointer);
+			if (!feof(FilePointer)) 
+			{
+				fread(MyCells[i], sizeof(ExpressCell), 1, FilePointer);
+			}
+			else 
+			{
+				cout << "警告！已保存的快递柜数据不完整！" << endl;
+				break;
+			}
 		}
 	}
 	else
@@ -35,7 +43,7 @@ ExpressTable::ExpressTable()
 		}
 	}
 
-	fclose(FilePointer);
+	if(FilePointer)fclose(FilePointer);
 }
 int  ExpressTable::IsFull() 
 {
