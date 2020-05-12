@@ -18,7 +18,7 @@ void CharacterControl::ExpressMan(ExpressTable& Table)
 
 		string op;
 		cin >> op;
-		int i;
+
 		if (op == "1")
 		{
 			int Index = Table.IsFull();
