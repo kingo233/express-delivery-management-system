@@ -13,7 +13,7 @@ ExpressTable::ExpressTable()
 		//打开文件成功
 		for (int i = 0; i < MAXN; i++) 
 		{
-			if (!feof(FilePointer)) 
+			if ((FilePointer->_Placeholder)) 
 			{
 				fread(MyCells[i], sizeof(ExpressCell), 1, FilePointer);
 			}
