@@ -10,5 +10,6 @@ public:
 	static void Adminstrator(ExpressTable& Table);
 	static void UISetting();
 	static void UISettingSave(string color);
+	static void UISettingLoad();
 };
 

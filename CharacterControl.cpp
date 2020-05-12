@@ -76,6 +76,28 @@ void CharacterControl::UISettingSave(string color)
 	fout << color << endl;
 	fout.close();
 }
+void CharacterControl::UISettingLoad()
+{
+	map<string, string> mp;
+	mp["1"] = "color 74";
+	mp["2"] = "color 07";
+	mp["3"] = "color 56";
+	mp["4"] = "color 30";
+	FILE* FilePointer;
+	const char FileName[20] = "cofig.ini";
+	if (fopen_s(&FilePointer, FileName, "rb") == 0 && FilePointer != NULL)
+	{
+		string cop;
+		fscanf_s(FilePointer, "s", cop);
+		system(mp[cop].c_str());
+		system("cls");
+		cout << "用户设置读取成功！";
+	}
+	else cout << "用户首次使用，默认颜色背景，可选择手动更改";
+	Sleep(1000);
+	system("cls");
+	fclose(FilePointer);
+}
 void CharacterControl::UISetting()
 {
 	map<string, string> mp;
@@ -94,6 +116,7 @@ void CharacterControl::UISetting()
 			system(mp[cop].c_str());
 			system("cls");
 			cout << "设置成功！";
+			UISettingSave(cop);
 			break;
 		}
 		else if (cop == "0") return;
