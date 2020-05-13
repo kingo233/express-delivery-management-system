@@ -16,7 +16,7 @@ ExpressTable::ExpressTable()
 	{
 		for (int i = 0; i < MAXN; i++) {
 			MyCells[i] = new ExpressCell;
-			fin.read((char*)MyCells[i], sizeof(ExpressCell)+sizeof(Express));
+			fin.read((char*)MyCells[i], sizeof(ExpressCell));
 
 		}
 	}
