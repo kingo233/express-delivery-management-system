@@ -1,63 +1,63 @@
 #include "Compare.h"
 #include<iostream>
-using namespace std;/*
+using namespace std;
 bool Compare::CompanyNameAscendingCmp(ExpressCell a, ExpressCell b) 
 {
-	if (a.ExpressPointer == NULL) return false;
-	else if (b.ExpressPointer == NULL) return true;
-	return a.ExpressPointer->CompanyName < b.ExpressPointer->CompanyName;
+	if (a.Timer == 0) return false;
+	else if (b.Timer == 0) return true;
+	return a.Express.CompanyName < b.Express.CompanyName;
 }
 bool Compare::OwnerNameAscendingCmp(ExpressCell a, ExpressCell b) 
 {
-	if (a.ExpressPointer == NULL) return false;
-	else if (b.ExpressPointer == NULL) return true;
-	return a.ExpressPointer->OwnerName < b.ExpressPointer->OwnerName;
+	if (a.Timer == 0) return false;
+	else if (b.Timer == 0) return true;
+	return a.Express.OwnerName < b.Express.OwnerName;
 }
 bool Compare::PhoneNumerAscendingCmp(ExpressCell a, ExpressCell b) 
 {
-	if (a.ExpressPointer == NULL) return false;
-	else if (b.ExpressPointer == NULL) return true;
-	return a.ExpressPointer->PhoneNumber < b.ExpressPointer->PhoneNumber;
+	if (a.Timer == 0) return false;
+	else if (b.Timer == 0) return true;
+	return a.Express.PhoneNumber < b.Express.PhoneNumber;
 }
 bool Compare::IndexAscendingCmp(ExpressCell a, ExpressCell b) 
 {
-	if (a.ExpressPointer == NULL) return false;
-	else if (b.ExpressPointer == NULL) return true;
+	if (a.Timer == 0) return false;
+	else if (b.Timer == 0) return true;
 	return a.Index < b.Index;
 }
 bool Compare::TimeAscendingCmp(ExpressCell a, ExpressCell b) 
 {
-	if (a.ExpressPointer == NULL) return false;
-	else if (b.ExpressPointer == NULL) return true;
+	if (a.Timer == 0) return false;
+	else if (b.Timer == 0) return true;
 	return a.Timer < b.Timer;
 }
 bool Compare::CompanyNameDescendingCmp(ExpressCell a, ExpressCell b)
 {
-	if (b.ExpressPointer == NULL) return false;
-	else if (a.ExpressPointer == NULL) return true;
-	return a.ExpressPointer->CompanyName > b.ExpressPointer->CompanyName;
+	if (b.Timer == 0) return false;
+	else if (a.Timer == 0) return true;
+	return a.Express.CompanyName > b.Express.CompanyName;
 }
 bool Compare::OwnerNameDescendingCmp(ExpressCell a, ExpressCell b)
 {
-	if (b.ExpressPointer == NULL) return false;
-	else if (a.ExpressPointer == NULL) return true;
-	return a.ExpressPointer->OwnerName > b.ExpressPointer->OwnerName;
+	if (b.Timer == 0) return false;
+	else if (a.Timer == 0) return true;
+	return a.Express.OwnerName > b.Express.OwnerName;
 }
 bool Compare::PhoneNumerDescendingCmp(ExpressCell a, ExpressCell b)
 {
-	if (b.ExpressPointer == NULL) return false;
-	else if (a.ExpressPointer == NULL) return true;
-	return a.ExpressPointer->PhoneNumber > b.ExpressPointer->PhoneNumber;
+	if (b.Timer == 0) return false;
+	else if (a.Timer == 0) return true;
+	return a.Express.PhoneNumber > b.Express.PhoneNumber;
 }
 bool Compare::IndexDescendingCmp(ExpressCell a, ExpressCell b)
 {
-	if (b.ExpressPointer == NULL) return false;
-	else if (a.ExpressPointer == NULL) return true;
+	if (b.Timer == 0) return false;
+	else if (a.Timer == 0) return true;
 	return a.Index >  b.Index;
 }
 bool Compare::TimeDescendingCmp(ExpressCell a, ExpressCell b)
 {
-	if (b.ExpressPointer == NULL) return false;
-	else if (a.ExpressPointer == NULL) return true;
+	if (b.Timer == 0) return false;
+	else if (a.Timer == 0) return true;
 	return a.Timer > b.Timer;
-}*/
+}

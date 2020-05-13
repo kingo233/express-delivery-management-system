@@ -25,6 +25,7 @@ void CharacterControl::ExpressMan(ExpressTable& Table)
 			if (Index == -1)
 			{
 				cout << "对不起，快递柜已满！" << endl;
+				Sleep(1000);
 				return;
 			}
 			else 
@@ -34,10 +35,12 @@ void CharacterControl::ExpressMan(ExpressTable& Table)
 				if (Table.PlaceExpress(Index)) 
 				{
 					cout << "放入成功！" << endl;
+					Sleep(1000);
 				}
 				else 
 				{
 					cout << "放入失败！" << endl;
+					Sleep(1000);
 				}
 			}
 		}

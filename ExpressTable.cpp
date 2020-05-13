@@ -137,8 +137,8 @@ ExpressTable::~ExpressTable()
 bool ExpressTable::PlaceExpress(int Postion) 
 {
 
-	cin >> MyCells[Postion]->ExpressPointer.PhoneNumber >> MyCells[Postion]->ExpressPointer.OwnerName
-		>> MyCells[Postion]->ExpressPointer.CompanyName;
+	cin >> MyCells[Postion]->Express.PhoneNumber >> MyCells[Postion]->Express.OwnerName
+		>> MyCells[Postion]->Express.CompanyName;
 	//time函数计算time_t整数，返回的是当前时间
 	MyCells[Postion]->Timer = time(NULL);
 
