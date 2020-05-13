@@ -5,10 +5,13 @@
 using namespace std;
 int main() 
 {
-	
 	//创建快递柜对象，查询子目录下的数据文件判断有没有已有的，有就读取数据
 	ExpressTable Table;
+
+	//加载UI界面设置
 	CharacterControl::UISettingLoad();
+
+
 	while (1) 
 	{
 		system("cls");

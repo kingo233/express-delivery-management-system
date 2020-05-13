@@ -68,7 +68,7 @@ ExpressTable::ExpressTable()
 
 	//关闭文件，先检查指针是否为空
 	if(FilePointer)fclose(FilePointer);*/
-
+	fin.close();
 	//保存数据
 	Save();
 }
@@ -100,6 +100,7 @@ void ExpressTable::Save()
 			fout.write((char*)MyCells[i], sizeof(ExpressCell));
 		}
 	}
+	fout.close();
 	/*FILE* FilePointer;
 	if (fopen_s(&FilePointer, FileName, "wb") == 0 && FilePointer != NULL)
 	{
