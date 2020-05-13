@@ -52,7 +52,8 @@ void CharacterControl::ExpressMan(ExpressTable& Table)
 		{
 			system("cls");
 			cout << "请输入正确的操作数！";
-			Sleep(1000);//暂停以便于用户看清楚错误信息
+			//暂停以便于用户看清楚错误信息
+			Sleep(1000);
 			system("cls");
 		}
 	}
