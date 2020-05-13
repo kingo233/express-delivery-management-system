@@ -28,46 +28,7 @@ ExpressTable::ExpressTable()
 			MyCells[i]->Index = i;
 		}
 	}
-	/*FILE* FilePointer;
-	if (fopen_s(&FilePointer,FileName,"rb") == 0 && FilePointer != NULL ) 
-	{
-		//打开文件成功
-		for (int i = 0; i < MAXN; i++) 
-		{
-			MyCells[i] = (ExpressCell*)malloc(sizeof(ExpressCell));
-			if (MyCells[i] != NULL) 
-			{
-				fread(MyCells[i], sizeof(ExpressCell), 1, FilePointer);
-			}
-		}
-	}
-	else
-	{
-		//文件不存在
-		//换用wb方式创建数据文件
-		if (fopen_s(&FilePointer, FileName, "wb") == 0);
-		else 
-		{
-			cout << "创建快递柜数据文件失败！" << endl;
-			return;
-		}
 
-		//为MyCells初始化
-		for (int i = 0; i < MAXN; i++)
-		{
-			MyCells[i] = (ExpressCell*)malloc(sizeof(ExpressCell));
-			if (MyCells[i] != NULL)
-			{
-				MyCells[i]->Index = i;
-				MyCells[i]->Timer = 0;
-				MyCells[i]->ExpressPointer = NULL;
-			}
-
-		}
-	}
-
-	//关闭文件，先检查指针是否为空
-	if(FilePointer)fclose(FilePointer);*/
 	fin.close();
 	//保存数据
 	Save();
@@ -101,31 +62,7 @@ void ExpressTable::Save()
 		}
 	}
 	fout.close();
-	/*FILE* FilePointer;
-	if (fopen_s(&FilePointer, FileName, "wb") == 0 && FilePointer != NULL)
-	{
-		for (int i = 0; i < MAXN; i++) 
-		{
-			if (MyCells[i] == NULL) 
-			{
-				//一般来说，只要快递柜的构造函数完成，MyCells[i]就一定不为NULL
-				//这里仍然讨论NULL是为了增强程序容错性
-				MyCells[i] = (ExpressCell*)malloc(sizeof(ExpressCell));
-				if (MyCells[i] != NULL)
-				{
-					MyCells[i]->Index = i;
-					MyCells[i]->Timer = 0;
-					MyCells[i]->StrTime = "";
-					MyCells[i]->ExpressPointer = NULL;
-				}
-			}
-			
-			if (MyCells[i] != NULL) 
-			{ 
-				fwrite(MyCells[i], sizeof(ExpressCell), 1, FilePointer); 
-			}
-		}
-	}*/
+
 }
 ExpressTable::~ExpressTable()
 {
