@@ -1,6 +1,6 @@
 #include "Compare.h"
 #include<iostream>
-using namespace std;
+using namespace std;/*
 bool Compare::CompanyNameAscendingCmp(ExpressCell a, ExpressCell b) 
 {
 	if (a.ExpressPointer == NULL) return false;
@@ -60,4 +60,4 @@ bool Compare::TimeDescendingCmp(ExpressCell a, ExpressCell b)
 	if (b.ExpressPointer == NULL) return false;
 	else if (a.ExpressPointer == NULL) return true;
 	return a.Timer > b.Timer;
-}
+}*/

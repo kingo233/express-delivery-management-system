@@ -16,7 +16,7 @@ ExpressTable::ExpressTable()
 	{
 		for (int i = 0; i < MAXN; i++) {
 			MyCells[i] = new ExpressCell;
-			fin.read((char*)MyCells[i], sizeof(ExpressCell));
+			fin.read((char*)MyCells[i], sizeof(ExpressCell)+sizeof(Express));
 
 		}
 	}
@@ -77,7 +77,7 @@ int  ExpressTable::IsFull()
 	for (int i = 0; i < MAXN; i++) 
 	{
 		//一般来说，只要快递柜的构造函数完成，MyCells[i]就一定不为NULL
-		if (MyCells[i] && MyCells[i]->ExpressPointer == NULL) 
+		if (MyCells[i] && MyCells[i]->Index == 0) 
 		{
 			return i;
 		}
@@ -98,13 +98,6 @@ void ExpressTable::Save()
 	{
 		for (int i = 0; i < MAXN; i++) {
 			fout.write((char*)MyCells[i], sizeof(ExpressCell));
-			fout << endl << MyCells[i]->StrTime;
-			//fout.write((char*)&MyCells[i]->StrTime, sizeof(MyCells[i])->StrTime);
-			if (MyCells[i]->ExpressPointer) 
-			{
-				fout << MyCells[i]->ExpressPointer->PhoneNumber << endl << MyCells[i]->ExpressPointer->OwnerName
-					<< endl << MyCells[i]->ExpressPointer->CompanyName;
-			}
 		}
 	}
 	/*FILE* FilePointer;
@@ -143,9 +136,8 @@ ExpressTable::~ExpressTable()
 bool ExpressTable::PlaceExpress(int Postion) 
 {
 
-	MyCells[Postion]->ExpressPointer = new Express;
-	cin >> MyCells[Postion]->ExpressPointer->PhoneNumber >> MyCells[Postion]->ExpressPointer->OwnerName
-		>> MyCells[Postion]->ExpressPointer->CompanyName;
+	cin >> MyCells[Postion]->ExpressPointer.PhoneNumber >> MyCells[Postion]->ExpressPointer.OwnerName
+		>> MyCells[Postion]->ExpressPointer.CompanyName;
 	//time函数计算time_t整数，返回的是当前时间
 	MyCells[Postion]->Timer = time(NULL);
 
