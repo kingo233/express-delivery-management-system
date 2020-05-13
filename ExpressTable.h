@@ -10,7 +10,7 @@ public:
 	//保存数据
 	void Save();
 	//放入快递，成功返回true
-	bool PlaceExpress(Express& e,int Postion);
+	bool PlaceExpress(int Postion);
 
 	//取出快递，成功返回true
 	bool TakeExpress();

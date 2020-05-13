@@ -3,23 +3,42 @@
 #include <iostream>
 #include <time.h>
 #include <Windows.h>
-#include <iostream>
+#include <fstream>
 #include <string>
 using namespace std;
 ExpressTable::ExpressTable()
 {
 	memset(MyCells, 0, sizeof(MyCells));
 	const char FileName[20] = "Cells.dat";
-	FILE* FilePointer;
+	
+	ifstream fin(FileName, ios::in | ios::binary);
+	if (fin.is_open()) 
+	{
+		for (int i = 0; i < MAXN; i++) {
+			MyCells[i] = new ExpressCell;
+			fin.read((char*)MyCells[i], sizeof(ExpressCell));
 
-
+		}
+	}
+	else 
+	{
+		for (int i = 0; i < MAXN; i++)
+		{
+			MyCells[i] = new ExpressCell;
+			MyCells[i]->Index = i;
+		}
+	}
+	/*FILE* FilePointer;
 	if (fopen_s(&FilePointer,FileName,"rb") == 0 && FilePointer != NULL ) 
 	{
 		//打开文件成功
 		for (int i = 0; i < MAXN; i++) 
 		{
-			MyCells[i] = new ExpressCell;
-			fread(MyCells[i], sizeof(ExpressCell), 1, FilePointer);
+			MyCells[i] = (ExpressCell*)malloc(sizeof(ExpressCell));
+			if (MyCells[i] != NULL) 
+			{
+				fread(MyCells[i], sizeof(ExpressCell), 1, FilePointer);
+			}
 		}
 	}
 	else
@@ -36,13 +55,19 @@ ExpressTable::ExpressTable()
 		//为MyCells初始化
 		for (int i = 0; i < MAXN; i++)
 		{
-			MyCells[i] = new ExpressCell();
-			MyCells[i]->Index = i;
+			MyCells[i] = (ExpressCell*)malloc(sizeof(ExpressCell));
+			if (MyCells[i] != NULL)
+			{
+				MyCells[i]->Index = i;
+				MyCells[i]->Timer = 0;
+				MyCells[i]->ExpressPointer = NULL;
+			}
+
 		}
 	}
 
 	//关闭文件，先检查指针是否为空
-	if(FilePointer)fclose(FilePointer);
+	if(FilePointer)fclose(FilePointer);*/
 
 	//保存数据
 	Save();
@@ -66,9 +91,23 @@ int  ExpressTable::IsFull()
 }
 void ExpressTable::Save() 
 {
-	FILE* FilePointer;
+
 	const char FileName[20] = "Cells.dat";
-	
+	ofstream fout(FileName, ios::out | ios::binary);
+	if (fout.is_open()) 
+	{
+		for (int i = 0; i < MAXN; i++) {
+			fout.write((char*)MyCells[i], sizeof(ExpressCell));
+			fout << endl << MyCells[i]->StrTime;
+			//fout.write((char*)&MyCells[i]->StrTime, sizeof(MyCells[i])->StrTime);
+			if (MyCells[i]->ExpressPointer) 
+			{
+				fout << MyCells[i]->ExpressPointer->PhoneNumber << endl << MyCells[i]->ExpressPointer->OwnerName
+					<< endl << MyCells[i]->ExpressPointer->CompanyName;
+			}
+		}
+	}
+	/*FILE* FilePointer;
 	if (fopen_s(&FilePointer, FileName, "wb") == 0 && FilePointer != NULL)
 	{
 		for (int i = 0; i < MAXN; i++) 
@@ -76,36 +115,43 @@ void ExpressTable::Save()
 			if (MyCells[i] == NULL) 
 			{
 				//一般来说，只要快递柜的构造函数完成，MyCells[i]就一定不为NULL
-				//这里仍然讨论NULL是增强程序容错性
-				MyCells[i] = new ExpressCell();
+				//这里仍然讨论NULL是为了增强程序容错性
+				MyCells[i] = (ExpressCell*)malloc(sizeof(ExpressCell));
+				if (MyCells[i] != NULL)
+				{
+					MyCells[i]->Index = i;
+					MyCells[i]->Timer = 0;
+					MyCells[i]->StrTime = "";
+					MyCells[i]->ExpressPointer = NULL;
+				}
 			}
 			
-			fwrite(MyCells[i], sizeof(ExpressCell), 1, FilePointer);
+			if (MyCells[i] != NULL) 
+			{ 
+				fwrite(MyCells[i], sizeof(ExpressCell), 1, FilePointer); 
+			}
 		}
-	}
+	}*/
 }
 ExpressTable::~ExpressTable()
 {
 	Save();
 	for (int i = 0; i < MAXN; i++) {
-		if (MyCells[i])delete MyCells[i];
+		if (MyCells[i])delete (MyCells[i]);
 	}
 }
-bool ExpressTable::PlaceExpress(Express& e, int Postion) 
+bool ExpressTable::PlaceExpress(int Postion) 
 {
-	//快递格的快递指针指向快递
-	MyCells[Postion]->ExpressPointer = &e;
 
+	MyCells[Postion]->ExpressPointer = new Express;
+	cin >> MyCells[Postion]->ExpressPointer->PhoneNumber >> MyCells[Postion]->ExpressPointer->OwnerName
+		>> MyCells[Postion]->ExpressPointer->CompanyName;
 	//time函数计算time_t整数，返回的是当前时间
 	MyCells[Postion]->Timer = time(NULL);
 
-	//构造tm结构体，内部包含各种时间信息
-	struct tm* Tblock=NULL;
+	//将time_t转换成字符串
 
-	char buffer[50];
-	ctime_s(buffer, 50, &MyCells[Postion]->Timer);
-	MyCells[Postion]->StrTime = string(buffer);
-	//localtime_s(Tblock, &MyCells[Postion]->Timer);
+	ctime_s(MyCells[Postion]->StrTime, 50, &MyCells[Postion]->Timer);
 	
 	return true;
 }

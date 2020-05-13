@@ -30,10 +30,8 @@ void CharacterControl::ExpressMan(ExpressTable& Table)
 			else 
 			{
 				cout << "请输入快递收件人号码、收件人姓名和快递公司名,用空格隔开" << endl;
-				string PhoneNumer,OwnerName, CompanyName;
-				cin >> PhoneNumer >> OwnerName >> CompanyName;
-				Express e(PhoneNumer, OwnerName, CompanyName);
-				if (Table.PlaceExpress(e, Index)) 
+
+				if (Table.PlaceExpress(Index)) 
 				{
 					cout << "放入成功！" << endl;
 				}

@@ -6,17 +6,16 @@ class Express
 public:
 	Express();
 	~Express();
-	Express(string, string, string);
 
 
 	//快递收件人手机号码
-	string PhoneNumber;
+	char PhoneNumber[20];
 
 	//收件人姓名
-	string OwnerName;
+	char OwnerName[10];
 
 	//快递公司名称
-	string CompanyName;
+	char CompanyName[20];
 };
 
 
