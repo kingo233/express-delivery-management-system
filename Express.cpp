@@ -1,7 +1,9 @@
 #include "Express.h"
-Express::Express() :PhoneNumber(0), OwnerName(""), CompanyName("") {
+Express::Express() :PhoneNumber(""), OwnerName(""), CompanyName("") 
+{
 
 }
+
 Express::~Express() {
 
 }

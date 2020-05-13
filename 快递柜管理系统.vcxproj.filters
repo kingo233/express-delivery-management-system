@@ -30,6 +30,9 @@
     <ClCompile Include="ExpressTable.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="CharacterControl.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Compare.h">
@@ -44,10 +47,8 @@
     <ClInclude Include="ExpressTable.h">
       <Filter>头文件</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="C:\Users\Administrator\Desktop\快递柜管理系统.docx">
-      <Filter>资源文件</Filter>
-    </None>
+    <ClInclude Include="CharacterControl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

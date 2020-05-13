@@ -1,47 +1,88 @@
 #include "ExpressTable.h"
 #include <stdio.h>
 #include <iostream>
+#include <time.h>
+#include <Windows.h>
+#include <fstream>
+#include <string>
 using namespace std;
 ExpressTable::ExpressTable()
 {
 	memset(MyCells, 0, sizeof(MyCells));
-	FILE* FilePointer;
 	const char FileName[20] = "Cells.dat";
-	if (fopen_s(&FilePointer,FileName,"rb") == 0 && FilePointer != NULL ) 
+	
+	ifstream fin(FileName, ios::in | ios::binary);
+	if (fin.is_open()) 
 	{
-		//打开文件成功
-		for (int i = 0; i < MAXN; i++) 
-		{
-			fread(MyCells[i], sizeof(ExpressCell), 1, FilePointer);
+		for (int i = 0; i < MAXN; i++) {
+			MyCells[i] = new ExpressCell;
+			fin.read((char*)MyCells[i], sizeof(ExpressCell));
+
 		}
 	}
-	else
+	else 
 	{
-		//文件不存在
-		//换用wb方式创建数据文件
-		if (fopen_s(&FilePointer, FileName, "wb") == 0);
-		else 
-		{
-			cout << "创建快递柜数据文件失败！" << endl;
-			return;
-		}
-
-		//为MyCells初始化
 		for (int i = 0; i < MAXN; i++)
 		{
-			MyCells[i] = new ExpressCell();
+			MyCells[i] = new ExpressCell;
 			MyCells[i]->Index = i;
 		}
 	}
 
-	fclose(FilePointer);
+	fin.close();
+	//保存数据
+	Save();
 }
+int  ExpressTable::IsFull() 
+{
+	for (int i = 0; i < MAXN; i++) 
+	{
+		//一般来说，只要快递柜的构造函数完成，MyCells[i]就一定不为NULL
+		if (MyCells[i] && MyCells[i]->Index == 0) 
+		{
+			return i;
+		}
+		else if (MyCells[i] == NULL) 
+		{
+			//以防万一，便于debug
+			cout << "MyCells[i]指针出现NULL错误！" << endl;
+		}
+	}
+	return -1;
+}
+void ExpressTable::Save() 
+{
 
+	const char FileName[20] = "Cells.dat";
+	ofstream fout(FileName, ios::out | ios::binary);
+	if (fout.is_open()) 
+	{
+		for (int i = 0; i < MAXN; i++) {
+			fout.write((char*)MyCells[i], sizeof(ExpressCell));
+		}
+	}
+	fout.close();
+
+}
 ExpressTable::~ExpressTable()
 {
 	Save();
 	for (int i = 0; i < MAXN; i++) {
-		if (MyCells[i])delete MyCells[i];
+		if (MyCells[i])delete (MyCells[i]);
 	}
+}
+bool ExpressTable::PlaceExpress(int Postion) 
+{
+
+	cin >> MyCells[Postion]->Express.PhoneNumber >> MyCells[Postion]->Express.OwnerName
+		>> MyCells[Postion]->Express.CompanyName;
+	//time函数计算time_t整数，返回的是当前时间
+	MyCells[Postion]->Timer = time(NULL);
+
+	//将time_t转换成字符串
+
+	ctime_s(MyCells[Postion]->StrTime, 50, &MyCells[Postion]->Timer);
+	
+	return true;
 }
 

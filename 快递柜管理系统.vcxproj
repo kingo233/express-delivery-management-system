@@ -138,6 +138,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CharacterControl.cpp" />
     <ClCompile Include="Compare.cpp" />
     <ClCompile Include="ExpressTable.cpp" />
     <ClCompile Include="main.cpp" />
@@ -145,13 +146,11 @@
     <ClCompile Include="ExpressCell.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CharacterControl.h" />
     <ClInclude Include="Compare.h" />
     <ClInclude Include="Express.h" />
     <ClInclude Include="ExpressCell.h" />
     <ClInclude Include="ExpressTable.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="C:\Users\Administrator\Desktop\快递柜管理系统.docx" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
