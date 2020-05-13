@@ -48,7 +48,8 @@ int main()
 		else 
 		{
 			cout << "ÇëÊäÈëÕıÈ·µÄ²Ù×÷Êı£¡" << endl;
-			Sleep(1000);//ÔİÍ£1Ãë
+			//ÔİÍ£1Ãë
+			Sleep(1000);
 			system("cls");
 			continue;
 		}
