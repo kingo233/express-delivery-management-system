@@ -21,7 +21,7 @@ public:
 	char StrTime[50];
 
 	//与一个快递关联
-	Express ExpressPointer;
+	Express Express;
 
 };
 

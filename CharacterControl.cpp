@@ -82,49 +82,47 @@ void CharacterControl::UISettingSave(string color)
 }
 void CharacterControl::UISettingLoad()
 {
-	map<string, string> mp;
-	mp["1"] = "color 74";
-	mp["2"] = "color 07";
-	mp["3"] = "color 56";
-	mp["4"] = "color 30";
 	ifstream fin;
 	const char FileName[20] = "cofig.ini";
 	fin.open(FileName);
 	if (fin.is_open())
 	{
-		string cop;
-		fin>> cop;
-		system(mp[cop].c_str());
+		string op1;
+		string op2;
+		fin >> op1>>op2;
+		op1.append(" ");
+		op1.append(op2);
+		system(op1.c_str());
 	}
 	fin.close();
 }
 void CharacterControl::UISetting()
 {
-	map<string, string> mp;
-	mp["1"] = "color 74";
-	mp["2"] = "color 07";
-	mp["3"] = "color 56";
-	mp["4"] = "color 30";
 	while (true) {
 		system("cls");
-		cout << "请选择字体背景颜色设置：" << endl << "1.白色背景红色字体" << endl << "2.黑色背景白色字体" << endl
-			<< "3.紫色背景黄色字体（猛男专用）" << endl << "4.绿色背景黑色字体（护眼模式）" << endl << "0.返回主菜单" << endl;
+		cout << "请按以下信息设置字体背景颜色（背景颜色在前，字体颜色在后）：" << endl << "0 = 黑色 8 = 灰色" << endl << "1 = 蓝色 9 = 淡蓝色" << endl
+			<< "2 = 绿色 A = 淡绿色" << endl << "3 = 浅绿色 B = 淡浅绿色" << endl << "4 = 红色 C = 淡红色" << endl << "5 = 紫色 D = 淡紫色" << endl
+			<< "6 = 黄色 E = 淡黄色" << endl << "7 = 白色 F = 亮白色" << endl << "如：设置黑色背景白色字体请输入 08" << endl << "0.返回主菜单" << endl;
 		string cop;
 		cin >> cop;
-		if (cop == "1" || cop == "2" || cop == "3" || cop == "4")
+		if (cop == "0") return;
+		else if(cop.length()==2&&((cop[0]>='0'&&cop[0]<='9')||(cop[0]>='A'||cop[0]<='F'))&& ((cop[1] >= '0' && cop[1] <= '9') || (cop[1] >= 'A' || cop[1] <= 'F'))&&cop[0]!=cop[1])
 		{
-			system(mp[cop].c_str());
+			string color = "color ";
+			color.append(cop);
+			UISettingSave(string(color));
+			system(color.c_str());
 			system("cls");
-			cout << "设置成功！";
-			UISettingSave(cop);
+			cout << "设置成功!";
+			Sleep(1000);
+			system("cls");
 			break;
 		}
-		else if (cop == "0") return;
 		else {
 			system("cls");
 			cout << "请输入正确的操作数！";
+			Sleep(1000);
+			system("cls");
 		}
-		Sleep(1000);
-		system("cls");
 	}
 }
