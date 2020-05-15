@@ -11,7 +11,7 @@ public:
 	//按收件人姓名升序排序
 	static bool OwnerNameAscendingCmp(ExpressCell a, ExpressCell b);
 	//按收件人手机号码升序排序
-	static bool PhoneNumerAscendingCmp(ExpressCell a, ExpressCell b);
+	static bool PhoneNumberAscendingCmp(ExpressCell a, ExpressCell b);
 	//按快递柜编号升序排序
 	static bool IndexAscendingCmp(ExpressCell a, ExpressCell b);
 	//按入库时间从早到晚排序
@@ -23,7 +23,7 @@ public:
 	//按收件人姓名降序排序
 	static bool OwnerNameDescendingCmp(ExpressCell a, ExpressCell b);
 	//按收件人手机号码降序排序
-	static bool PhoneNumerDescendingCmp(ExpressCell a, ExpressCell b);
+	static bool PhoneNumberDescendingCmp(ExpressCell a, ExpressCell b);
 	//按快递柜编号降序排序
 	static bool IndexDescendingCmp(ExpressCell a, ExpressCell b);
 	//按入库时间从晚到早排序

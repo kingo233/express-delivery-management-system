@@ -13,11 +13,11 @@ bool Compare::OwnerNameAscendingCmp(ExpressCell a, ExpressCell b)
 	else if (b.Timer == 0) return true;
 	return strcmp(a.Express.OwnerName, b.Express.OwnerName);
 }
-bool Compare::PhoneNumerAscendingCmp(ExpressCell a, ExpressCell b) 
+bool Compare::PhoneNumberAscendingCmp(ExpressCell a, ExpressCell b) 
 {
 	if (a.Timer == 0) return false;
 	else if (b.Timer == 0) return true;
-	return strcmp(a.Express.PhoneNumer, b.Express.PhoneNumer);
+	return strcmp(a.Express.PhoneNumber, b.Express.PhoneNumber);
 }
 bool Compare::IndexAscendingCmp(ExpressCell a, ExpressCell b) 
 {
@@ -43,11 +43,11 @@ bool Compare::OwnerNameDescendingCmp(ExpressCell a, ExpressCell b)
 	else if (a.Timer == 0) return true;
 	return strcmp(b.Express.OwnerName, a.Express.OwnerName);
 }
-bool Compare::PhoneNumerDescendingCmp(ExpressCell a, ExpressCell b)
+bool Compare::PhoneNumberDescendingCmp(ExpressCell a, ExpressCell b)
 {
 	if (b.Timer == 0) return false;
 	else if (a.Timer == 0) return true;
-	return strcmp(b.Express.PhoneNumer, a.Express.PhoneNumer);
+	return strcmp(b.Express.PhoneNumber, a.Express.PhoneNumber);
 }
 bool Compare::IndexDescendingCmp(ExpressCell a, ExpressCell b)
 {
