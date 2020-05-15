@@ -60,8 +60,69 @@ void CharacterControl::ExpressMan(ExpressTable& Table)
 }
 void CharacterControl::Receiver(ExpressTable& Table) 
 {
-
+	while (true)
+	{
+		system("cls");
+		cout << "选择操作" << endl;
+		cout << "0.返回主界面" << endl << "1.取出快递" << endl;
+		string op;
+		cin >> op;
+		if (op == "1")
+		{
+			system("cls");
+			int i;
+			int flag=0;//代表取出快递的数量
+			cout << "请输入姓名" << endl;
+			char name[10];
+			cin >> name;
+			cout << "请输入电话号码" << endl;
+			char phonenumber[20];
+			cin >> phonenumber;
+			for ( i = 0; i < 500; i++)
+			{
+				if (Table.returnTimer(i) != 0)
+				{
+					if (strcmp(Table.returnOwnerName(i), name) == 0 && strcmp(Table.returnPhoneNumber(i), phonenumber) == 0)
+					{
+						if (Table.TakeExpress(i))
+						{
+							cout << "取出成功" << endl;
+							flag++;
+							Sleep(1000);
+						}
+						else
+						{
+							cout << "取出失败" << endl;
+							Sleep(1000);
+						}
+					}	
+				}
+			}
+			if (flag==0)
+			{
+			
+			    cout << "未找到与您信息相匹配的快递" << endl << "请确认您输入的信息是否正确" << endl;
+				Sleep(1000);
+				system("cls");
+			
+			}
+		}
+		else if (op == "0")
+		{
+			return;
+		}
+		else
+		{
+			system("cls");
+			cout << "请输入正确的操作数！";
+			//暂停以便于用户看清楚错误信息
+			Sleep(1000);
+			system("cls");
+		}
+	}
 }
+
+
 
 void CharacterControl::Adminstrator(ExpressTable& Table) 
 {

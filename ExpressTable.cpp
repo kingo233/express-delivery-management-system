@@ -85,4 +85,25 @@ bool ExpressTable::PlaceExpress(int Postion)
 	
 	return true;
 }
+bool ExpressTable::TakeExpress(int Postion)
+{
+	MyCells[Postion]->Index = 0;
+	MyCells[Postion]->Timer = 0;
+	return true;
+}
+
+char* ExpressTable::returnOwnerName(int index)
+{
+	return MyCells[index]->Express.OwnerName;
+}
+
+char* ExpressTable::returnPhoneNumber(int index)
+{
+	return MyCells[index]->Express.PhoneNumber;
+}
+
+int ExpressTable::returnTimer(int index)
+{
+	return MyCells[index]->Timer;
+}
 
