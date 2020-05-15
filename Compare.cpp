@@ -5,19 +5,19 @@ bool Compare::CompanyNameAscendingCmp(ExpressCell a, ExpressCell b)
 {
 	if (a.Timer == 0) return false;
 	else if (b.Timer == 0) return true;
-	return a.Express.CompanyName < b.Express.CompanyName;
+	return strcmp(a.Express.CompanyName, b.Express.CompanyName);
 }
 bool Compare::OwnerNameAscendingCmp(ExpressCell a, ExpressCell b) 
 {
 	if (a.Timer == 0) return false;
 	else if (b.Timer == 0) return true;
-	return a.Express.OwnerName < b.Express.OwnerName;
+	return strcmp(a.Express.OwnerName, b.Express.OwnerName);
 }
 bool Compare::PhoneNumerAscendingCmp(ExpressCell a, ExpressCell b) 
 {
 	if (a.Timer == 0) return false;
 	else if (b.Timer == 0) return true;
-	return a.Express.PhoneNumber < b.Express.PhoneNumber;
+	return strcmp(a.Express.PhoneNumer, b.Express.PhoneNumer);
 }
 bool Compare::IndexAscendingCmp(ExpressCell a, ExpressCell b) 
 {
@@ -35,19 +35,19 @@ bool Compare::CompanyNameDescendingCmp(ExpressCell a, ExpressCell b)
 {
 	if (b.Timer == 0) return false;
 	else if (a.Timer == 0) return true;
-	return a.Express.CompanyName > b.Express.CompanyName;
+	return strcmp(b.Express.CompanyName, a.Express.CompanyName);
 }
 bool Compare::OwnerNameDescendingCmp(ExpressCell a, ExpressCell b)
 {
 	if (b.Timer == 0) return false;
 	else if (a.Timer == 0) return true;
-	return a.Express.OwnerName > b.Express.OwnerName;
+	return strcmp(b.Express.OwnerName, a.Express.OwnerName);
 }
 bool Compare::PhoneNumerDescendingCmp(ExpressCell a, ExpressCell b)
 {
 	if (b.Timer == 0) return false;
 	else if (a.Timer == 0) return true;
-	return a.Express.PhoneNumber > b.Express.PhoneNumber;
+	return strcmp(b.Express.PhoneNumer, a.Express.PhoneNumer);
 }
 bool Compare::IndexDescendingCmp(ExpressCell a, ExpressCell b)
 {
