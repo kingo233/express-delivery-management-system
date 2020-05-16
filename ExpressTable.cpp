@@ -87,7 +87,7 @@ bool ExpressTable::PlaceExpress(int Postion)
 }
 bool ExpressTable::TakeExpress(int Postion)
 {
-	MyCells[Postion]->Index = 0;
+
 	MyCells[Postion]->Timer = 0;
 	return true;
 }
