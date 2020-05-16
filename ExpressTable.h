@@ -13,15 +13,12 @@ public:
 	bool PlaceExpress(int Postion);
 
 	//取出快递，成功返回true
-	bool TakeExpress(int Postion);
+	bool TakeExpress(int Postion, char* phonenumber, char* ownername);
 
 	//查询快递柜是否已满，满了返回-1，没满返回第一个空的快递格的位置
 	int IsFull();
 
-	//利用成员函数访问私有成员
-	char* returnOwnerName(int index);
-	char* returnPhoneNumber(int index);
-	int returnTimer(int index);
+
 
 private:
 	const int MAXN = 500;
