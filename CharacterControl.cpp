@@ -80,22 +80,11 @@ void CharacterControl::Receiver(ExpressTable& Table)
 			cin >> phonenumber;
 			for ( i = 0; i < 500; i++)
 			{
-				if (Table.returnTimer(i) != 0)
+				if (Table.TakeExpress(i, phonenumber, name))
 				{
-					if (strcmp(Table.returnOwnerName(i), name) == 0 && strcmp(Table.returnPhoneNumber(i), phonenumber) == 0)
-					{
-						if (Table.TakeExpress(i))
-						{
-							cout << "取出成功" << endl;
-							flag++;
-							Sleep(1000);
-						}
-						else
-						{
-							cout << "取出失败" << endl;
-							Sleep(1000);
-						}
-					}	
+					cout << "取出成功" << endl;
+					Sleep(1000);
+					flag++;
 				}
 			}
 			if (flag==0)

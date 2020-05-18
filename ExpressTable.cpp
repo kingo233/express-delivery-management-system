@@ -85,25 +85,25 @@ bool ExpressTable::PlaceExpress(int Postion)
 	
 	return true;
 }
-bool ExpressTable::TakeExpress(int Postion)
+bool ExpressTable::TakeExpress(int Postion, char* phonenumber, char* ownername)
 {
-	MyCells[Postion]->Index = 0;
-	MyCells[Postion]->Timer = 0;
-	return true;
-}
+	if (MyCells[Postion]->Timer == 0)
+	{
+		return false;
+	}
+	else
+	{
+		if (strcmp(MyCells[Postion]->Express.OwnerName, ownername) == 0 && strcmp(MyCells[Postion]->Express.PhoneNumber, phonenumber) == 0)
+		{
+			MyCells[Postion]->Timer = 0;
+				
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
 
-char* ExpressTable::returnOwnerName(int index)
-{
-	return MyCells[index]->Express.OwnerName;
-}
-
-char* ExpressTable::returnPhoneNumber(int index)
-{
-	return MyCells[index]->Express.PhoneNumber;
-}
-
-int ExpressTable::returnTimer(int index)
-{
-	return MyCells[index]->Timer;
 }
 
