@@ -113,19 +113,20 @@ void CharacterControl::Receiver(ExpressTable& Table)
 
 bool CharacterControl::IsPasswordCorrect()
 {
-	string ispsd, psd;
+	string Password, Password_right;
 	ifstream fin;
-	const char FileName[20] = "passwd.dat";
-	fin >> ispsd;
+	const char FileName[20] = "password.dat";
+	fin.open(FileName);
+	fin >> Password_right;
 	fin.close();
 	while (true) 
 	{
 		system("cls");
 		cout << "0.返回主菜单" << endl;
 		cout << "请输入管理员密码：" << endl;
-		cin >> psd;
-		if (psd == "0") break;
-		else if (psd != ispsd) 
+		cin >> Password;
+		if (Password == "0") return false;
+		else if (Password_right != Password)
 		{
 			cout << "密码输入错误！请重新输入正确密码";
 			Sleep(1000);
@@ -137,29 +138,27 @@ bool CharacterControl::IsPasswordCorrect()
 			return true;
 		}
 	}
-	return false;
 }
 void CharacterControl::PasswordSet() 
 {
-	string psd, psd1;
+	string Password, Password_sure;
 	while (true) 
 	{
 		system("cls");
 		cout << "0.返回主菜单" << endl;
 		cout << "请设置管理员密码：" << endl;
-		cin >> psd;
-		if (psd == "0") return;
+		cin >> Password;
+		if (Password == "0") return;
 		else 
 		{
 			cout << "请确认密码：" << endl;
-			cin >> psd1;
-			if (psd1 == "0") return;
-			else if (psd1 == psd) 
+			cin >> Password_sure;
+			if (Password == Password_sure)
 			{
 				ofstream fout;
-				const char FileName[20] = "passwd.dat";
+				const char FileName[20] = "password.dat";
 				fout.open(FileName);
-				fout << psd1;
+				fout << Password;
 				fout.close();
 				cout << "密码设置成功！";
 				Sleep(1000);
@@ -175,22 +174,26 @@ void CharacterControl::PasswordSet()
 }
 void CharacterControl::Adminstrator(ExpressTable& Table) 
 {
-	const char FileName[20] = "passwd.dat";
-	fstream _file;
-	_file.open(FileName, ios::in);
-	if (!_file) 
+	int Exist;
+	//判断管理员密码文件是否存在
+	const char FileName[20] = "password.dat";
+	fstream PasswordFile;
+	PasswordFile.open(FileName);
+	if (!PasswordFile) Exist = 1;
+	else Exist = 0;
+	PasswordFile.close();
+	if (Exist == 1)
 	{
 		PasswordSet();
 	}
 	else
 	{
-		if (IsPasswordCorrect() == true)
+		if (IsPasswordCorrect())
 		{
 
 		}
-		else if (IsPasswordCorrect() == false) return;
+		else return;
 	}
-	_file.close();
 }
 void CharacterControl::UISettingSave(string color) 
 {
