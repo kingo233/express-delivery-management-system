@@ -11,5 +11,7 @@ public:
 	static void UISetting();
 	static void UISettingSave(string color);
 	static void UISettingLoad();
+	static bool IsPassword();
+	static void PasswordSet();
 };
 

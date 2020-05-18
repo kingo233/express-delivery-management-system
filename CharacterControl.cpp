@@ -122,11 +122,86 @@ void CharacterControl::Receiver(ExpressTable& Table)
 	}
 }
 
-
-
+bool CharacterControl::IsPassword()
+{
+	string ispsd, psd;
+	ifstream fin;
+	const char FileName[20] = "passwd.dat";
+	fin >> ispsd;
+	fin.close();
+	while (true) 
+	{
+		system("cls");
+		cout << "0.返回主菜单" << endl;
+		cout << "请输入管理员密码：" << endl;
+		cin >> psd;
+		if (psd == "0") break;
+		else if (psd != ispsd) 
+		{
+			cout << "密码输入错误！请重新输入正确密码";
+			Sleep(1000);
+		}
+		else 
+		{
+			cout << "密码正确！";
+			Sleep(1000);
+			return true;
+		}
+	}
+	return false;
+}
+void CharacterControl::PasswordSet() 
+{
+	string psd, psd1;
+	while (true) 
+	{
+		system("cls");
+		cout << "0.返回主菜单" << endl;
+		cout << "请设置管理员密码：" << endl;
+		cin >> psd;
+		if (psd == "0") return;
+		else 
+		{
+			cout << "请确认密码：" << endl;
+			cin >> psd1;
+			if (psd1 == "0") return;
+			else if (psd1 == psd) 
+			{
+				ofstream fout;
+				const char FileName[20] = "passwd.dat";
+				fout.open(FileName);
+				fout << psd1;
+				fout.close();
+				cout << "密码设置成功！";
+				Sleep(1000);
+				break;
+			}
+			else 
+			{
+				cout << "密码不一致！请重新输入！";
+				Sleep(1000);
+			}
+		}
+	}
+}
 void CharacterControl::Adminstrator(ExpressTable& Table) 
 {
+	const char FileName[20] = "passwd.dat";
+	fstream _file;
+	_file.open(FileName, ios::in);
+	if (!_file) 
+	{
+		PasswordSet();
+	}
+	else
+	{
+		if (IsPassword() == true)
+		{
 
+		}
+		else if (IsPassword() == false) return;
+	}
+	_file.close();
 }
 void CharacterControl::UISettingSave(string color) 
 {
@@ -161,9 +236,9 @@ void CharacterControl::UISetting()
 {
 	while (true) {
 		system("cls");
-		cout << "请按以下信息设置字体背景颜色（背景颜色在前，字体颜色在后，字母不区分大小写）：" << endl << "0 = 黑色 8 = 灰色" << endl
-			<< "1 = 蓝色 9 = 淡蓝色" << endl<< "2 = 绿色 A = 淡绿色" << endl << "3 = 浅绿色 B = 淡浅绿色" << endl << "4 = 红色 C = 淡红色" << endl 
-			<< "5 = 紫色 D = 淡紫色" << endl<< "6 = 黄色 E = 淡黄色" << endl << "7 = 白色 F = 亮白色" << endl << "如：设置黑色背景白色字体请输入 07" << endl 
+		cout << "请按以下信息设置字体背景颜色（背景颜色在前，字体颜色在后，字母不区分大小写）：" << endl << "0 = 黑色     8 = 灰色" << endl
+			<< "1 = 蓝色     9 = 淡蓝色" << endl<< "2 = 绿色     A = 淡绿色" << endl << "3 = 浅绿色   B = 淡浅绿色" << endl << "4 = 红色     C = 淡红色" << endl 
+			<< "5 = 紫色     D = 淡紫色" << endl<< "6 = 黄色     E = 淡黄色" << endl << "7 = 白色     F = 亮白色" << endl << "如：设置黑色背景白色字体请输入 07" << endl 
 			<< "0.返回主菜单" << endl;
 		string cop;
 		cin >> cop;
