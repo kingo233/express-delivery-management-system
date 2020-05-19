@@ -41,7 +41,7 @@ int  ExpressTable::IsFull()
 	for (int i = 0; i < MAXN; i++) 
 	{
 		//一般来说，只要快递柜的构造函数完成，MyCells[i]就一定不为NULL
-		if (MyCells[i] && MyCells[i]->Index == 0) 
+		if (MyCells[i] && MyCells[i]->Timer == 0) 
 		{
 			return i;
 		}
