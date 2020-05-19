@@ -11,6 +11,8 @@ public:
 	ExpressCell();
 	~ExpressCell();
 
+	void PrintInfo();
+
 	//¿ìµÝ¸ñµÄ±àºÅ
 	int Index;
 

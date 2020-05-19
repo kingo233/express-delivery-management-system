@@ -29,7 +29,7 @@ public:
 	//按入库时间从晚到早排序
 	static bool TimeDescendingCmp(ExpressCell a, ExpressCell b);
 
-	//位置复原排序
+	//位置复原排序,上面的排序都是只对含快递的格子排序。
 	static bool ResetCmp(ExpressCell a, ExpressCell b);
 };
 

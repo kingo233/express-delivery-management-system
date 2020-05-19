@@ -18,6 +18,9 @@ public:
 	//查询快递柜是否已满，满了返回-1，没满返回第一个空的快递格的位置
 	int IsFull();
 
+	//查询快递柜是否是空的，是返回true
+	bool IsEmpty();
+
 	//展示柜内物品
 	void Show();
 
