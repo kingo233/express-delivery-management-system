@@ -101,12 +101,16 @@ void ExpressTable::Show()
 		else 
 		{
 			sort(MyCells, MyCells + MAXN, mp[op]);
+			system("cls");
+
 			for (int i = 0; MyCells[i]->Timer != 0; i++) {
 				MyCells[i]->PrintInfo();
 			}
+			system("pause");
 		}
 	}
-
+	//»¹Ô­
+	sort(MyCells, MyCells + MAXN, Compare::ResetCmp);
 }
 void ExpressTable::Save() 
 {

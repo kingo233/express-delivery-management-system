@@ -213,7 +213,7 @@ void CharacterControl::Adminstrator(ExpressTable& Table)
 
 		if (op == "1") 
 		{
-
+			Table.Show();
 		}
 		else if (op == "2") 
 		{
