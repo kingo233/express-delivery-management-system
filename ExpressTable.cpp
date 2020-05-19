@@ -69,9 +69,9 @@ void ExpressTable::Show()
 		Sleep(1000);
 		return;
 	}
-
+	typedef bool (*pCmp)(ExpressCell*, ExpressCell*);
 	//map键值对用于存储比较函数的函数指针
-	map<string, bool (*)(ExpressCell, ExpressCell)> mp;
+	map<string, pCmp> mp;
 	mp["1"] = Compare::CompanyNameAscendingCmp;		mp["6"] = Compare::CompanyNameDescendingCmp;
 	mp["2"] = Compare::OwnerNameAscendingCmp;		mp["7"] = Compare::OwnerNameDescendingCmp;
 	mp["3"] = Compare::PhoneNumberAscendingCmp;		mp["8"] = Compare::PhoneNumberDescendingCmp;
