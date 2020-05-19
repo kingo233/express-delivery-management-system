@@ -113,11 +113,11 @@ void CharacterControl::Receiver(ExpressTable& Table)
 
 bool CharacterControl::IsPasswordCorrect()
 {
-	string Password, Password_right;
+	string Password, PasswordRight;
 	ifstream fin;
 	const char FileName[20] = "password.dat";
 	fin.open(FileName);
-	fin >> Password_right;
+	fin >> PasswordRight;
 	fin.close();
 	while (true) 
 	{
@@ -126,7 +126,7 @@ bool CharacterControl::IsPasswordCorrect()
 		cout << "请输入管理员密码：" << endl;
 		cin >> Password;
 		if (Password == "0") return false;
-		else if (Password_right != Password)
+		else if (PasswordRight != Password)
 		{
 			cout << "密码输入错误！请重新输入正确密码";
 			Sleep(1000);
@@ -141,7 +141,7 @@ bool CharacterControl::IsPasswordCorrect()
 }
 void CharacterControl::PasswordSet() 
 {
-	string Password, Password_sure;
+	string Password, PasswordSure;
 	while (true) 
 	{
 		system("cls");
@@ -152,8 +152,8 @@ void CharacterControl::PasswordSet()
 		else 
 		{
 			cout << "请确认密码：" << endl;
-			cin >> Password_sure;
-			if (Password == Password_sure)
+			cin >> PasswordSure;
+			if (Password == PasswordSure)
 			{
 				ofstream fout;
 				const char FileName[20] = "password.dat";
