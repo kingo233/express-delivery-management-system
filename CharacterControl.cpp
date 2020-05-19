@@ -2,9 +2,8 @@
 #include <Windows.h>
 #include <iostream>
 #include <fstream>
-#include <map>
-#include <sstream>
 #include <string>
+#include <cctype>
 using namespace std;
 void CharacterControl::ExpressMan(ExpressTable& Table)
 {
@@ -157,7 +156,7 @@ void CharacterControl::PasswordSet()
 			{
 				ofstream fout;
 				const char FileName[20] = "password.dat";
-				fout.open(FileName);
+				fout.open(FileName,ios::out);
 				fout << Password;
 				fout.close();
 				cout << "密码设置成功！";
@@ -172,17 +171,22 @@ void CharacterControl::PasswordSet()
 		}
 	}
 }
+inline bool CharacterControl::IsOperatorCorrect(char c)
+{
+	if (isdigit(c) || toupper(c) >= 'A' && toupper(c) <= 'F')return true;
+	else return false;
+}
 void CharacterControl::Adminstrator(ExpressTable& Table) 
 {
 	int Exist;
 	//判断管理员密码文件是否存在
 	const char FileName[20] = "password.dat";
-	fstream PasswordFile;
-	PasswordFile.open(FileName);
-	if (!PasswordFile) Exist = 1;
+	ifstream PasswordFile;
+	PasswordFile.open(FileName,ios::in);
+	if (PasswordFile.is_open()) Exist = 1;
 	else Exist = 0;
 	PasswordFile.close();
-	if (Exist == 1)
+	if (Exist == 0)
 	{
 		PasswordSet();
 	}
@@ -237,7 +241,8 @@ void CharacterControl::UISetting()
 		string cop;
 		cin >> cop;
 		if (cop == "0") return;
-		else if(cop.length()==2&&((cop[0]>='0'&&cop[0]<='9')||(cop[0]>='A'&&cop[0]<='F'))&& ((cop[1] >= '0' && cop[1] <= '9') || (cop[1] >= 'A' && cop[1] <= 'F'))&&cop[0]!=cop[1])
+
+		else if(cop.length() == 2 && IsOperatorCorrect(cop[0]) && IsOperatorCorrect(cop[1]) && cop[0] != cop[1])
 		{
 			string color = "color ";
 			color.append(cop);
