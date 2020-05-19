@@ -217,7 +217,16 @@ void CharacterControl::Adminstrator(ExpressTable& Table)
 		}
 		else if (op == "2") 
 		{
-
+			system("cls");
+			ifstream inf;
+			inf.open("log.txt");
+			string s;
+			while (getline(inf, s))
+			{
+				cout << s << endl ;
+			}
+			inf.close();
+			system("pause");
 		}
 		else if (op == "3") 
 		{

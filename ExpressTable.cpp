@@ -144,7 +144,17 @@ bool ExpressTable::PlaceExpress(int Postion)
 	//将time_t转换成字符串
 
 	ctime_s(MyCells[Postion]->StrTime, 50, &MyCells[Postion]->Timer);
-	
+
+	//在文件中记录
+	ofstream fout;
+	const char FileName[20] = "log.txt";
+	fout.open(FileName);
+	if (!fout.is_open())
+	{
+		cout << "文件打开失败" << endl;
+	}
+	fout << "放入快递: " << " 姓名："<<MyCells[Postion]->Express.OwnerName<<" 电话号码："<<MyCells[Postion]->Express.PhoneNumber<<"  快递公司: "<<MyCells[Postion]->Express.CompanyName<< endl;
+	fout.close();
 	return true;
 }
 bool ExpressTable::TakeExpress(int Postion, char* phonenumber, char* ownername)
@@ -160,7 +170,18 @@ bool ExpressTable::TakeExpress(int Postion, char* phonenumber, char* ownername)
 		if (strcmp(MyCells[Postion]->Express.OwnerName, ownername) == 0 && strcmp(MyCells[Postion]->Express.PhoneNumber, phonenumber) == 0)
 		{
 			MyCells[Postion]->Timer = 0;
-				
+
+			//在文件中记录
+			ofstream fout;
+			const char FileName[20] = "log.txt";
+			fout.open(FileName);
+			if (!fout.is_open())
+			{
+				cout << "文件打开失败" << endl;
+			}
+			fout << "取出快递: " << " 姓名：" << MyCells[Postion]->Express.OwnerName << " 电话号码：" << MyCells[Postion]->Express.PhoneNumber << "  快递公司: " << MyCells[Postion]->Express.CompanyName << endl;
+			fout.close();
+
 			return true;
 		}
 		else
