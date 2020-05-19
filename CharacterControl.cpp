@@ -178,26 +178,64 @@ inline bool CharacterControl::IsOperatorCorrect(char c)
 }
 void CharacterControl::Adminstrator(ExpressTable& Table) 
 {
+	//判断管理员密码文件是否存在,1为存在
 	int Exist;
-	//判断管理员密码文件是否存在
+
 	const char FileName[20] = "password.dat";
 	ifstream PasswordFile;
 	PasswordFile.open(FileName,ios::in);
 	if (PasswordFile.is_open()) Exist = 1;
 	else Exist = 0;
 	PasswordFile.close();
+
+
 	if (Exist == 0)
 	{
 		PasswordSet();
 	}
 	else
 	{
-		if (IsPasswordCorrect())
+		if (!IsPasswordCorrect())
+		{
+			return;
+		}
+	}
+
+	while (true)
+	{
+		system("cls");
+		cout << "管理员菜单" << endl;
+		cout << "1.列出柜内物品" << endl << "2.查询日志" << endl << "3.更改密码" << endl;
+		cout << "0.返回主菜单" << endl;
+
+		string op;
+		cin >> op;
+
+		if (op == "1") 
 		{
 
 		}
-		else return;
+		else if (op == "2") 
+		{
+
+		}
+		else if (op == "3") 
+		{
+			PasswordSet();
+		}
+		else if (op == "0") 
+		{
+			return;
+		}
+		else 
+		{
+			system("cls");
+			cout << "请输入正确的操作数！" << endl;
+			//暂停1秒便于用户看清报错信息
+			Sleep(1000);
+		}
 	}
+	
 }
 void CharacterControl::UISettingSave(string color) 
 {

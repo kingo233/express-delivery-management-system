@@ -67,3 +67,7 @@ bool Compare::TimeDescendingCmp(ExpressCell a, ExpressCell b)
 	else if (a.Timer == 0) return true;
 	return a.Timer > b.Timer;
 }
+bool Compare::ResetCmp(ExpressCell a, ExpressCell b) 
+{
+	return a.Index < b.Index;
+}

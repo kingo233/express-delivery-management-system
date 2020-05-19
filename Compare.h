@@ -28,5 +28,8 @@ public:
 	static bool IndexDescendingCmp(ExpressCell a, ExpressCell b);
 	//按入库时间从晚到早排序
 	static bool TimeDescendingCmp(ExpressCell a, ExpressCell b);
+
+	//位置复原排序
+	static bool ResetCmp(ExpressCell a, ExpressCell b);
 };
 
