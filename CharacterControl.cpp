@@ -237,7 +237,7 @@ void CharacterControl::UISetting()
 		string cop;
 		cin >> cop;
 		if (cop == "0") return;
-		else if(cop.length()==2&&((cop[0]>='0'&&cop[0]<='9')||(cop[0]>='A'&&cop[0]<='F') || (cop[0] >= 'a' && cop[0] <= 'f'))&& ((cop[1] >= '0' && cop[1] <= '9') || (cop[1] >= 'A' && cop[1] <= 'F') || (cop[1] >= 'a' && cop[1] <= 'f'))&&cop[0]!=cop[1])
+		else if(cop.length()==2&&((cop[0]>='0'&&cop[0]<='9')||(cop[0]>='A'&&cop[0]<='F'))&& ((cop[1] >= '0' && cop[1] <= '9') || (cop[1] >= 'A' && cop[1] <= 'F') )&&cop[0]!=cop[1])
 		{
 			string color = "color ";
 			color.append(cop);
