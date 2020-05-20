@@ -124,7 +124,7 @@ void ExpressTable::WriteLog(int mode, int Postion)
 	}
 	string s[2] = { "取出快递: ","放入快递: " };
 	fout << s[mode] << " 姓名：" << MyCells[Postion]->Express.OwnerName << " 电话号码：" << MyCells[Postion]->Express.PhoneNumber
-		<< "  快递公司: " << MyCells[Postion]->Express.CompanyName << endl;
+		<< "  快递公司: " << MyCells[Postion]->Express.CompanyName <<" 时间："<<MyCells[Postion]->StrTime<< endl;
 	fout.close();
 }
 void ExpressTable::Save() 
