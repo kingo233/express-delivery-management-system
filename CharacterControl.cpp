@@ -172,6 +172,20 @@ void CharacterControl::PasswordSet()
 	}
 }
 
+void CharacterControl::ReadLog()
+{
+	system("cls");
+	ifstream inf;
+	inf.open("log.txt", ios::in);
+	string s;
+	while (getline(inf, s))
+	{
+		cout << s << endl;
+	}
+	inf.close();
+	system("pause");
+}
+
 inline bool CharacterControl::IsOperatorCorrect(char c)
 {
 	if (isdigit(c) || toupper(c) >= 'A' && toupper(c) <= 'F')return true;
@@ -218,16 +232,7 @@ void CharacterControl::Adminstrator(ExpressTable& Table)
 		}
 		else if (op == "2") 
 		{
-			system("cls");
-			ifstream inf;
-			inf.open("log.txt",ios::in);
-			string s;
-			while (getline(inf, s))
-			{
-				cout << s << endl ;
-			}
-			inf.close();
-			system("pause");
+			ReadLog();
 		}
 		else if (op == "3") 
 		{
