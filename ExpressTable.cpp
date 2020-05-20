@@ -1,5 +1,6 @@
 #include "ExpressTable.h"
 #include "Compare.h"
+#include "CharacterControl.h"
 #include <stdio.h>
 #include <iostream>
 #include <time.h>
@@ -112,6 +113,20 @@ void ExpressTable::Show()
 	//还原
 	sort(MyCells, MyCells + MAXN, Compare::ResetCmp);
 }
+void ExpressTable::WriteLog(int mode, int Postion)
+{
+	//在文件中记录
+	ofstream fout;
+	fout.open("log.txt", ios::app);
+	if (!fout.is_open())
+	{
+		cout << "日志文件打开失败！" << endl;
+	}
+	fout << mode ? "放入快递: " : "取出快递: ";
+	fout << " 姓名：" << MyCells[Postion]->Express.OwnerName << " 电话号码：" << MyCells[Postion]->Express.PhoneNumber
+		<< "  快递公司: " << MyCells[Postion]->Express.CompanyName << endl;
+	fout.close();
+}
 void ExpressTable::Save() 
 {
 
@@ -146,15 +161,8 @@ bool ExpressTable::PlaceExpress(int Postion)
 	ctime_s(MyCells[Postion]->StrTime, 50, &MyCells[Postion]->Timer);
 
 	//在文件中记录
-	ofstream fout;
+	WriteLog(1, Postion);
 
-	fout.open("log.txt",ios::app);
-	if (!fout.is_open())
-	{
-		cout << "文件打开失败" << endl;
-	}
-	fout << "放入快递: " << " 姓名："<<MyCells[Postion]->Express.OwnerName<<" 电话号码："<<MyCells[Postion]->Express.PhoneNumber<<"  快递公司: "<<MyCells[Postion]->Express.CompanyName<< endl;
-	fout.close();
 	return true;
 }
 bool ExpressTable::TakeExpress(int Postion, char* phonenumber, char* ownername)
@@ -169,18 +177,11 @@ bool ExpressTable::TakeExpress(int Postion, char* phonenumber, char* ownername)
 	{
 		if (strcmp(MyCells[Postion]->Express.OwnerName, ownername) == 0 && strcmp(MyCells[Postion]->Express.PhoneNumber, phonenumber) == 0)
 		{
+			//把timer变成0代表快递被取出
 			MyCells[Postion]->Timer = 0;
 
-			//在文件中记录
-			ofstream fout;
-			fout.open("log.txt",ios::app);
-			if (!fout.is_open())
-			{
-				cout << "文件打开失败" << endl;
-			}
-			fout << "取出快递: " << " 姓名：" << MyCells[Postion]->Express.OwnerName << " 电话号码：" << MyCells[Postion]->Express.PhoneNumber << "  快递公司: " << MyCells[Postion]->Express.CompanyName << endl;
-			fout.close();
-
+			//写入日志
+			WriteLog(0, Postion);
 			return true;
 		}
 		else

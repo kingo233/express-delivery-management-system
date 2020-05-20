@@ -171,6 +171,7 @@ void CharacterControl::PasswordSet()
 		}
 	}
 }
+
 inline bool CharacterControl::IsOperatorCorrect(char c)
 {
 	if (isdigit(c) || toupper(c) >= 'A' && toupper(c) <= 'F')return true;

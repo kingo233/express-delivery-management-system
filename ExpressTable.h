@@ -24,6 +24,9 @@ public:
 	//展示柜内物品
 	void Show();
 
+	//mode为1说明是放入快递的日志，否则为取出快递
+	void WriteLog(int mode, int Postion);
+
 private:
 	const int MAXN = 500;
 	ExpressCell* MyCells[500];
