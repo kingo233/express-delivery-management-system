@@ -147,8 +147,8 @@ bool ExpressTable::PlaceExpress(int Postion)
 
 	//在文件中记录
 	ofstream fout;
-	const char FileName[20] = "log.txt";
-	fout.open(FileName);
+
+	fout.open("log.txt",ios::app);
 	if (!fout.is_open())
 	{
 		cout << "文件打开失败" << endl;
@@ -173,8 +173,7 @@ bool ExpressTable::TakeExpress(int Postion, char* phonenumber, char* ownername)
 
 			//在文件中记录
 			ofstream fout;
-			const char FileName[20] = "log.txt";
-			fout.open(FileName);
+			fout.open("log.txt",ios::app);
 			if (!fout.is_open())
 			{
 				cout << "文件打开失败" << endl;

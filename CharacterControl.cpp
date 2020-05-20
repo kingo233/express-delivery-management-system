@@ -219,7 +219,7 @@ void CharacterControl::Adminstrator(ExpressTable& Table)
 		{
 			system("cls");
 			ifstream inf;
-			inf.open("log.txt");
+			inf.open("log.txt",ios::in);
 			string s;
 			while (getline(inf, s))
 			{
