@@ -177,6 +177,9 @@ void CharacterControl::ReadLog()
 	system("cls");
 	ifstream inf;
 	inf.open("log.txt", ios::in);
+	if (!inf.is_open()) {
+		cout << "ÈÕÖ¾Îª¿Õ£¡" << endl;
+	}
 	string s;
 	while (getline(inf, s))
 	{

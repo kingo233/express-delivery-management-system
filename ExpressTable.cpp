@@ -122,8 +122,8 @@ void ExpressTable::WriteLog(int mode, int Postion)
 	{
 		cout << "日志文件打开失败！" << endl;
 	}
-	fout << mode ? "放入快递: " : "取出快递: ";
-	fout << " 姓名：" << MyCells[Postion]->Express.OwnerName << " 电话号码：" << MyCells[Postion]->Express.PhoneNumber
+	string s[2] = { "取出快递: ","放入快递: " };
+	fout << s[mode] << " 姓名：" << MyCells[Postion]->Express.OwnerName << " 电话号码：" << MyCells[Postion]->Express.PhoneNumber
 		<< "  快递公司: " << MyCells[Postion]->Express.CompanyName << endl;
 	fout.close();
 }
