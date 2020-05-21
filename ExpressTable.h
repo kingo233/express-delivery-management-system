@@ -30,6 +30,5 @@ public:
 private:
 	const int MAXN = 500;
 	ExpressCell* MyCells[500];
-	friend Compare;
 };
 
