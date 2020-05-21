@@ -25,7 +25,7 @@ public:
 	void Show();
 
 	//mode为1说明是放入快递的日志，否则为取出快递
-	void WriteLog(int mode, int Postion);
+	void WriteLog(int mode, int Postion,char* time);
 
 private:
 	const int MAXN = 500;

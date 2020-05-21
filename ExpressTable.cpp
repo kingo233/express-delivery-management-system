@@ -113,7 +113,7 @@ void ExpressTable::Show()
 	//还原
 	sort(MyCells, MyCells + MAXN, Compare::ResetCmp);
 }
-void ExpressTable::WriteLog(int mode, int Postion)
+void ExpressTable::WriteLog(int mode, int Postion,char* time)
 {
 	//在文件中记录
 	ofstream fout;
@@ -124,7 +124,7 @@ void ExpressTable::WriteLog(int mode, int Postion)
 	}
 	string s[2] = { "取出快递: ","放入快递: " };
 	fout << s[mode] << " 姓名：" << MyCells[Postion]->Express.OwnerName << " 电话号码：" << MyCells[Postion]->Express.PhoneNumber
-		<< "  快递公司: " << MyCells[Postion]->Express.CompanyName << endl;
+		<< "  快递公司: " << MyCells[Postion]->Express.CompanyName << "操作时间：" << time << endl;
 	fout.close();
 }
 void ExpressTable::Save() 
@@ -161,7 +161,7 @@ bool ExpressTable::PlaceExpress(int Postion)
 	ctime_s(MyCells[Postion]->StrTime, 50, &MyCells[Postion]->Timer);
 
 	//在文件中记录
-	WriteLog(1, Postion);
+	WriteLog(1, Postion,MyCells[Postion]->StrTime);
 
 	return true;
 }
@@ -177,11 +177,20 @@ bool ExpressTable::TakeExpress(int Postion, char* phonenumber, char* ownername)
 	{
 		if (strcmp(MyCells[Postion]->Express.OwnerName, ownername) == 0 && strcmp(MyCells[Postion]->Express.PhoneNumber, phonenumber) == 0)
 		{
+			
+
+			//time函数计算time_t整数，返回的是当前时间
+			MyCells[Postion]->Timer = time(NULL);
+
+			//将time_t转换成字符串
+
+			ctime_s(MyCells[Postion]->StrTime, 50, &MyCells[Postion]->Timer);
+			
+			//写入日志
+			WriteLog(0, Postion,MyCells[Postion]->StrTime);
+
 			//把timer变成0代表快递被取出
 			MyCells[Postion]->Timer = 0;
-
-			//写入日志
-			WriteLog(0, Postion);
 			return true;
 		}
 		else
