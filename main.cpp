@@ -23,23 +23,20 @@ int main()
 		system("cls");
 		if (op == "0")
 		{
-			//save();
+			Table.Save();
 			return 0;
 		}
 		else if (op == "1")
 		{
 			CharacterControl::ExpressMan(Table);
-			//save();
 		}
 		else if (op == "2")
 		{
 			CharacterControl::Receiver(Table);
-			//save();
 		}
 		else if (op == "3")
 		{
 			CharacterControl::Adminstrator(Table);
-			//save();
 		}
 		else if (op == "4")
 		{
@@ -48,7 +45,7 @@ int main()
 		else 
 		{
 			cout << "请输入正确的操作数！" << endl;
-			//暂停1秒
+			//暂停1秒便于用户看清错误信息
 			Sleep(1000);
 			system("cls");
 			continue;
