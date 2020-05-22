@@ -11,5 +11,9 @@ public:
 	static void UISetting();
 	static void UISettingSave(string color);
 	static void UISettingLoad();
+	static bool IsPasswordCorrect();
+	static void PasswordSet();
+	static void ReadLog();
+	static inline bool IsOperatorCorrect(char c);
 };
 

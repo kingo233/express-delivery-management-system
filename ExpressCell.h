@@ -11,6 +11,9 @@ public:
 	ExpressCell();
 	~ExpressCell();
 
+	//打印相关信息
+	void PrintInfo();
+
 	//快递格的编号
 	int Index;
 
