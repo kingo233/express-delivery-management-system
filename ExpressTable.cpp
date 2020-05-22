@@ -170,7 +170,6 @@ bool ExpressTable::TakeExpress(int Postion, char* phonenumber, char* ownername)
 	if (MyCells[Postion]->Timer == 0)
 	{
 		//timer为0就是没有快递
-		cout << "该位置没有快递！" << endl;
 		return false;
 	}
 	else
