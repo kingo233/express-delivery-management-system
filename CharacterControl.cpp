@@ -127,6 +127,7 @@ bool CharacterControl::IsPasswordCorrect()
 	ifstream fin;
 	const char FileName[20] = "password.dat";
 	fin.open(FileName);
+	//正确密码
 	fin >> PasswordRight;
 	fin.close();
 	while (true) 
@@ -134,6 +135,7 @@ bool CharacterControl::IsPasswordCorrect()
 		system("cls");
 		cout << "0.返回主菜单" << endl;
 		cout << "请输入管理员密码：" << endl;
+		//验证密码
 		cin >> Password;
 		if (Password == "0") return false;
 		else if (PasswordRight != Password)
@@ -157,17 +159,20 @@ void CharacterControl::PasswordSet()
 		system("cls");
 		cout << "0.返回主菜单" << endl;
 		cout << "请设置管理员密码：" << endl;
+		//第一次输入密码
 		cin >> Password;
 		if (Password == "0") return;
 		else 
 		{
 			cout << "请确认密码：" << endl;
+			//第二次确认密码
 			cin >> PasswordSure;
 			if (Password == PasswordSure)
 			{
 				ofstream fout;
 				const char FileName[20] = "password.dat";
 				fout.open(FileName,ios::out);
+				//保存密码
 				fout << Password;
 				fout.close();
 				cout << "密码设置成功！";
