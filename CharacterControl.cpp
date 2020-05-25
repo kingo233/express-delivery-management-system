@@ -306,9 +306,12 @@ void CharacterControl::UISettingLoad()
 	{
 		string op1;
 		string op2;
+		//读入设置信息
 		fin >> op1>>op2;
+		//将信息接入一个字符串
 		op1.append(" ");
 		op1.append(op2);
+		//进行设置
 		system(op1.c_str());
 	}
 	fin.close();
@@ -333,8 +336,11 @@ void CharacterControl::UISetting()
 		{
 			//输入合法加载界面设置
 			string color = "color ";
+			//将用户输入的设置信息接到color末尾
 			color.append(cop);
+			//保存设置
 			UISettingSave(string(color));
+			//进行设置
 			system(color.c_str());
 			system("cls");
 			cout << "设置成功!";
