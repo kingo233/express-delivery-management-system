@@ -123,6 +123,8 @@ void ExpressTable::WriteLog(int mode, int Postion,char* time)
 		cout << "日志文件打开失败！" << endl;
 	}
 	string s[2] = { "取出快递: ","放入快递: " };
+
+	//将相关信息写入文件
 	fout << s[mode] << " 姓名：" << MyCells[Postion]->Express.OwnerName << "  电话号码：" << MyCells[Postion]->Express.PhoneNumber
 		<< "  快递公司: " << MyCells[Postion]->Express.CompanyName << "  操作时间：" << time << endl;
 	fout.close();
