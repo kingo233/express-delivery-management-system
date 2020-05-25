@@ -20,6 +20,8 @@ void CharacterControl::ExpressMan(ExpressTable& Table)
 
 		if (op == "1")
 		{
+			//判断快递柜是否已满
+
 			int Index = Table.IsFull();
 			if (Index == -1)
 			{
@@ -43,6 +45,7 @@ void CharacterControl::ExpressMan(ExpressTable& Table)
 				}
 			}
 		}
+		//返回主界面
 		else if (op == "0")
 		{
 			return;
@@ -64,13 +67,18 @@ void CharacterControl::Receiver(ExpressTable& Table)
 		system("cls");
 		cout << "选择操作" << endl;
 		cout << "0.返回主界面" << endl << "1.取出快递" << endl;
+		//界面控制
+
+
 		string op;
 		cin >> op;
 		if (op == "1")
 		{
 			system("cls");
 			int i;
-			int flag=0;//代表取出快递的数量
+
+			//代表取出快递的数量
+			int flag=0;
 			cout << "请输入姓名" << endl;
 			char name[10];
 			cin >> name;
@@ -86,15 +94,17 @@ void CharacterControl::Receiver(ExpressTable& Table)
 					flag++;
 				}
 			}
+
+			//表示未找到快递
 			if (flag==0)
 			{
-			
 			    cout << "未找到与您信息相匹配的快递" << endl << "请确认您输入的信息是否正确" << endl;
 				Sleep(1000);
 				system("cls");
 			
 			}
 		}
+		//返回主界面
 		else if (op == "0")
 		{
 			return;
@@ -103,6 +113,7 @@ void CharacterControl::Receiver(ExpressTable& Table)
 		{
 			system("cls");
 			cout << "请输入正确的操作数！";
+
 			//暂停以便于用户看清楚错误信息
 			Sleep(1000);
 			system("cls");
@@ -180,6 +191,8 @@ void CharacterControl::ReadLog()
 	if (!inf.is_open()) {
 		cout << "日志为空！" << endl;
 	}
+	//按行从文件中读取信息
+
 	string s;
 	while (getline(inf, s))
 	{
@@ -257,6 +270,8 @@ void CharacterControl::Adminstrator(ExpressTable& Table)
 }
 void CharacterControl::UISettingSave(string color) 
 {
+	//将用户的界面设置保存在文件中
+
 	ofstream fout;
 	const char FileName[20] = "cofig.ini";
 	fout.open(FileName);
