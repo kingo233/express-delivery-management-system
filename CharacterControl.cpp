@@ -21,8 +21,8 @@ void CharacterControl::ExpressMan(ExpressTable& Table)
 		if (op == "1")
 		{
 			//判断快递柜是否已满
-
 			int Index = Table.IsFull();
+			//返回-1说明满了
 			if (Index == -1)
 			{
 				cout << "对不起，快递柜已满！" << endl;
@@ -41,6 +41,7 @@ void CharacterControl::ExpressMan(ExpressTable& Table)
 				else 
 				{
 					cout << "放入失败！" << endl;
+					//暂停1秒便于用户看清提示信息
 					Sleep(1000);
 				}
 			}
@@ -69,23 +70,25 @@ void CharacterControl::Receiver(ExpressTable& Table)
 		cout << "0.返回主界面" << endl << "1.取出快递" << endl;
 		//界面控制
 
-
+		//操作数
 		string op;
 		cin >> op;
 		if (op == "1")
 		{
 			system("cls");
-			int i;
 
 			//代表取出快递的数量
 			int flag=0;
+
 			cout << "请输入姓名" << endl;
-			char name[10];
-			cin >> name;
+			//姓名和电话号码
+			char name[10], phonenumber[20];
+			cin >> name; 
 			cout << "请输入电话号码" << endl;
-			char phonenumber[20];
+			
 			cin >> phonenumber;
-			for ( i = 0; i < 500; i++)
+
+			for (int i = 0; i < 500; i++)
 			{
 				if (Table.TakeExpress(i, phonenumber, name))
 				{
@@ -96,7 +99,7 @@ void CharacterControl::Receiver(ExpressTable& Table)
 			}
 
 			//表示未找到快递
-			if (flag==0)
+			if (flag == 0)
 			{
 			    cout << "未找到与您信息相匹配的快递" << endl << "请确认您输入的信息是否正确" << endl;
 				Sleep(1000);
@@ -123,7 +126,9 @@ void CharacterControl::Receiver(ExpressTable& Table)
 
 bool CharacterControl::IsPasswordCorrect()
 {
+	//用户输入的密码和正确的密码
 	string Password, PasswordRight;
+
 	ifstream fin;
 	const char FileName[20] = "password.dat";
 	//打开密码文件
@@ -131,13 +136,16 @@ bool CharacterControl::IsPasswordCorrect()
 	//正确密码
 	fin >> PasswordRight;
 	fin.close();
+
 	while (true) 
 	{
 		system("cls");
 		cout << "0.返回主菜单" << endl;
 		cout << "请输入管理员密码：" << endl;
+
 		//验证密码
 		cin >> Password;
+
 		//输入为零返回主界面
 		if (Password == "0") return false;
 		//密码不正确重新输入
@@ -157,21 +165,26 @@ bool CharacterControl::IsPasswordCorrect()
 }
 void CharacterControl::PasswordSet() 
 {
+	//第一遍输入的密码和确认的密码
 	string Password, PasswordSure;
+
 	while (true) 
 	{
 		system("cls");
 		cout << "0.返回主菜单" << endl;
 		cout << "请设置管理员密码：" << endl;
+
 		//第一次输入密码
 		cin >> Password;
 		//输入为零返回主界面
+
 		if (Password == "0") return;
 		else 
 		{
 			//第二次确认密码
 			cout << "请确认密码：" << endl;
 			cin >> PasswordSure;
+
 			if (Password == PasswordSure)
 			{
 				//密码一致保存密码
@@ -181,6 +194,7 @@ void CharacterControl::PasswordSet()
 				fout.open(FileName,ios::out);
 				fout << Password;
 				fout.close();
+
 				cout << "密码设置成功！";
 				Sleep(1000);
 				break;
@@ -198,19 +212,21 @@ void CharacterControl::PasswordSet()
 void CharacterControl::ReadLog()
 {
 	system("cls");
+
 	ifstream inf;
 	inf.open("log.txt", ios::in);
 	if (!inf.is_open()) {
 		cout << "日志为空！" << endl;
 	}
-	//按行从文件中读取信息
 
+	//s代表一条日志
 	string s;
 	while (getline(inf, s))
 	{
 		cout << s << endl;
 	}
 	inf.close();
+
 	system("pause");
 }
 
@@ -283,10 +299,10 @@ void CharacterControl::Adminstrator(ExpressTable& Table)
 void CharacterControl::UISettingSave(string color) 
 {
 	//将用户的界面设置保存在文件中
-
 	ofstream fout;
 	const char FileName[20] = "cofig.ini";
 	fout.open(FileName);
+
 	if (!fout.is_open())
 	{
 		cout << "文件打开失败" << endl;
@@ -302,16 +318,19 @@ void CharacterControl::UISettingLoad()
 	//打开界面设置文件
 	fin.open(FileName);
 	//打开成功加载用户界面设置
+
 	if (fin.is_open())
 	{
 		string op1;
 		string op2;
 		//读入设置信息
-		fin >> op1>>op2;
+		fin >> op1 >> op2;
+
 		//将信息接入一个字符串
 		op1.append(" ");
 		op1.append(op2);
-		//进行设置
+
+		//进行设置,但是要转化为字符指针
 		system(op1.c_str());
 	}
 	fin.close();
@@ -327,8 +346,11 @@ void CharacterControl::UISetting()
 			<< "5 = 紫色     D = 淡紫色" << endl<< "6 = 黄色     E = 淡黄色" << endl << "7 = 白色     F = 亮白色" << endl 
 			<< "如：设置黑色背景白色字体请输入 07" << endl 
 			<< "0.返回主菜单" << endl;
+
+		//操作数
 		string cop;
 		cin >> cop;
+
 		//输入为零返回主界面
 		if (cop == "0") return;
 		//输入不为零验证输入是否合法
@@ -340,10 +362,12 @@ void CharacterControl::UISetting()
 			color.append(cop);
 			//保存设置
 			UISettingSave(string(color));
+
 			//进行设置
 			system(color.c_str());
 			system("cls");
 			cout << "设置成功!";
+
 			Sleep(1000);
 			system("cls");
 			break;
