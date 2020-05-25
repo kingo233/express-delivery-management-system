@@ -126,6 +126,7 @@ bool CharacterControl::IsPasswordCorrect()
 	string Password, PasswordRight;
 	ifstream fin;
 	const char FileName[20] = "password.dat";
+	//打开密码文件
 	fin.open(FileName);
 	//正确密码
 	fin >> PasswordRight;
@@ -137,12 +138,15 @@ bool CharacterControl::IsPasswordCorrect()
 		cout << "请输入管理员密码：" << endl;
 		//验证密码
 		cin >> Password;
+		//输入为零返回主界面
 		if (Password == "0") return false;
+		//密码不正确重新输入
 		else if (PasswordRight != Password)
 		{
 			cout << "密码输入错误！请重新输入正确密码";
 			Sleep(1000);
 		}
+		//密码正确进入管理员函数
 		else 
 		{
 			cout << "密码正确！";
@@ -161,18 +165,20 @@ void CharacterControl::PasswordSet()
 		cout << "请设置管理员密码：" << endl;
 		//第一次输入密码
 		cin >> Password;
+		//输入为零返回主界面
 		if (Password == "0") return;
 		else 
 		{
-			cout << "请确认密码：" << endl;
 			//第二次确认密码
+			cout << "请确认密码：" << endl;
 			cin >> PasswordSure;
 			if (Password == PasswordSure)
 			{
+				//密码一致保存密码
 				ofstream fout;
 				const char FileName[20] = "password.dat";
+				//打开密码文件
 				fout.open(FileName,ios::out);
-				//保存密码
 				fout << Password;
 				fout.close();
 				cout << "密码设置成功！";
@@ -181,6 +187,7 @@ void CharacterControl::PasswordSet()
 			}
 			else 
 			{
+				//密码不一致重新输入
 				cout << "密码不一致！请重新输入！";
 				Sleep(1000);
 			}
@@ -292,7 +299,9 @@ void CharacterControl::UISettingLoad()
 {
 	ifstream fin;
 	const char FileName[20] = "cofig.ini";
+	//打开界面设置文件
 	fin.open(FileName);
+	//打开成功加载用户界面设置
 	if (fin.is_open())
 	{
 		string op1;
@@ -308,6 +317,7 @@ void CharacterControl::UISetting()
 {
 	while (true) {
 		system("cls");
+		//提示用户输入设置信息
 		cout << "请按以下信息设置字体背景颜色（背景颜色在前，字体颜色在后，字母不区分大小写）：" << endl << "0 = 黑色     8 = 灰色" << endl
 			<< "1 = 蓝色     9 = 淡蓝色" << endl<< "2 = 绿色     A = 淡绿色" << endl << "3 = 浅绿色   B = 淡浅绿色" << endl 
 			<< "4 = 红色     C = 淡红色" << endl 
@@ -316,10 +326,12 @@ void CharacterControl::UISetting()
 			<< "0.返回主菜单" << endl;
 		string cop;
 		cin >> cop;
+		//输入为零返回主界面
 		if (cop == "0") return;
-
+		//输入不为零验证输入是否合法
 		else if(cop.length() == 2 && IsOperatorCorrect(cop[0]) && IsOperatorCorrect(cop[1]) && cop[0] != cop[1])
 		{
+			//输入合法加载界面设置
 			string color = "color ";
 			color.append(cop);
 			UISettingSave(string(color));
@@ -331,6 +343,7 @@ void CharacterControl::UISetting()
 			break;
 		}
 		else {
+			//不合法时提示用户
 			system("cls");
 			cout << "请输入正确的操作数！";
 			Sleep(1000);
