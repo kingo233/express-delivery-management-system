@@ -16,7 +16,7 @@ void CharacterControl::ExpressMan(ExpressTable& Table)
 
 
 		string op;
-		getline(cin, op);
+		cin >> op;
 
 		if (op == "1")
 		{
@@ -72,7 +72,7 @@ void CharacterControl::Receiver(ExpressTable& Table)
 
 		//操作数
 		string op;
-		getline(cin, op);
+		cin >> op;
 		if (op == "1")
 		{
 			system("cls");
@@ -80,14 +80,11 @@ void CharacterControl::Receiver(ExpressTable& Table)
 			//代表取出快递的数量
 			int flag = 0;
 
-			cout << "请输入姓名" << endl;
+			cout << "请输入姓名和电话号码，空格隔开" << endl;
 			//姓名和电话号码
 			char name[10], phonenumber[20];
 
-			cin.getline(name, 10);
-			cout << "请输入电话号码" << endl;
-			
-			cin.getline(phonenumber, 20);
+			cin >> name >> phonenumber;
 
 			for (int i = 0; i < 500; i++)
 			{
@@ -145,7 +142,7 @@ bool CharacterControl::IsPasswordCorrect()
 		cout << "请输入管理员密码：" << endl;
 
 		//验证密码
-		getline(cin,Password);
+		cin >> Password;
 
 		//输入为零返回主界面
 		if (Password == "0") return false;
@@ -350,7 +347,7 @@ void CharacterControl::UISetting()
 
 		//操作数
 		string cop;
-		getline(cin,cop);
+		cin >> cop;
 
 		//输入为零返回主界面
 		if (cop == "0") return;

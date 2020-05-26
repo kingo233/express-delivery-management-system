@@ -107,7 +107,7 @@ void ExpressTable::Show()
 
 		//²Ù×÷Êý
 		string op;
-		getline(cin, op);
+		cin >> op;
 
 		//·µ»Ø
 		if (op == "0") 
