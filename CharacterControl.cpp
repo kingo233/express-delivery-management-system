@@ -173,7 +173,7 @@ void CharacterControl::PasswordSet()
 	{
 		system("cls");
 		cout << "0.返回主菜单" << endl;
-		cout << "请设置管理员密码：" << endl;
+		cout << "请设置管理员密码(不带有空格)：" << endl;
 
 		//第一次输入密码
 		cin >> Password;
