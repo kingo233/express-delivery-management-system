@@ -78,15 +78,16 @@ void CharacterControl::Receiver(ExpressTable& Table)
 			system("cls");
 
 			//代表取出快递的数量
-			int flag=0;
+			int flag = 0;
 
 			cout << "请输入姓名" << endl;
 			//姓名和电话号码
 			char name[10], phonenumber[20];
-			cin >> name; 
+
+			cin.getline(name, 10);
 			cout << "请输入电话号码" << endl;
 			
-			cin >> phonenumber;
+			cin.getline(phonenumber, 20);
 
 			for (int i = 0; i < 500; i++)
 			{

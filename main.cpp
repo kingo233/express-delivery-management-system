@@ -18,9 +18,10 @@ int main()
 		cout << "欢迎使用快递柜管理系统！" << endl;
 		cout << "主菜单" << endl;
 		cout << "1.快递员" << endl << "2.取件人" << endl << "3.管理员" << endl << "4.UI界面设置" << endl << "0.结束" << endl;
+
 		string op;
 		getline(cin,op);
-		system("cls");
+
 		if (op == "0")
 		{
 			Table.Save();
@@ -29,14 +30,17 @@ int main()
 		else if (op == "1")
 		{
 			CharacterControl::ExpressMan(Table);
+			Table.Save();
 		}
 		else if (op == "2")
 		{
 			CharacterControl::Receiver(Table);
+			Table.Save();
 		}
 		else if (op == "3")
 		{
 			CharacterControl::Adminstrator(Table);
+			Table.Save();
 		}
 		else if (op == "4")
 		{
