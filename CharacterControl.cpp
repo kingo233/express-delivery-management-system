@@ -16,7 +16,7 @@ void CharacterControl::ExpressMan(ExpressTable& Table)
 
 
 		string op;
-		cin >> op;
+		getline(cin, op);
 
 		if (op == "1")
 		{
@@ -72,7 +72,7 @@ void CharacterControl::Receiver(ExpressTable& Table)
 
 		//²Ù×÷Êý
 		string op;
-		cin >> op;
+		getline(cin, op);
 		if (op == "1")
 		{
 			system("cls");
