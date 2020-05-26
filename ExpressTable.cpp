@@ -8,6 +8,7 @@
 #include <fstream>
 #include <string>
 #include <map>
+#include<iomanip>
 #include <algorithm>
 using namespace std;
 ExpressTable::ExpressTable()
@@ -147,8 +148,8 @@ void ExpressTable::WriteLog(int mode, int Postion,char* time)
 	string s[2] = { "取出快递: ","放入快递: " };
 
 	//将相关信息写入文件
-	fout << s[mode] << " 姓名：" << MyCells[Postion]->Express.OwnerName << "  电话号码：" << MyCells[Postion]->Express.PhoneNumber
-		<< "  快递公司: " << MyCells[Postion]->Express.CompanyName << "  操作时间：" << time << endl;
+	fout << s[mode] << " 姓名:" <<left<<setw(10)<< MyCells[Postion]->Express.OwnerName << " 电话号码:" <<left<<setw(15)<< MyCells[Postion]->Express.PhoneNumber
+		<< "快递公司:" <<left<<setw(15)<< MyCells[Postion]->Express.CompanyName << "操作时间:" <<left<<setw(20)<< time << endl;
 	fout.close();
 }
 void ExpressTable::Save() 
