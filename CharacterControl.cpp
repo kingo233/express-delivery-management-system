@@ -144,7 +144,7 @@ bool CharacterControl::IsPasswordCorrect()
 		cout << "请输入管理员密码：" << endl;
 
 		//验证密码
-		cin >> Password;
+		getline(cin,Password);
 
 		//输入为零返回主界面
 		if (Password == "0") return false;
@@ -175,7 +175,7 @@ void CharacterControl::PasswordSet()
 		cout << "请设置管理员密码：" << endl;
 
 		//第一次输入密码
-		cin >> Password;
+		getline(cin,Password);
 		//输入为零返回主界面
 
 		if (Password == "0") return;
@@ -183,7 +183,7 @@ void CharacterControl::PasswordSet()
 		{
 			//第二次确认密码
 			cout << "请确认密码：" << endl;
-			cin >> PasswordSure;
+			getline(cin,PasswordSure);
 
 			if (Password == PasswordSure)
 			{
@@ -349,7 +349,7 @@ void CharacterControl::UISetting()
 
 		//操作数
 		string cop;
-		cin >> cop;
+		getline(cin,cop);
 
 		//输入为零返回主界面
 		if (cop == "0") return;

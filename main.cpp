@@ -19,7 +19,7 @@ int main()
 		cout << "主菜单" << endl;
 		cout << "1.快递员" << endl << "2.取件人" << endl << "3.管理员" << endl << "4.UI界面设置" << endl << "0.结束" << endl;
 		string op;
-		cin >> op;
+		getline(cin,op);
 		system("cls");
 		if (op == "0")
 		{
