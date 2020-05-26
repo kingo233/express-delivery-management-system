@@ -8,22 +8,30 @@
 #include <fstream>
 #include <string>
 #include <map>
+#include<iomanip>
 #include <algorithm>
 using namespace std;
 ExpressTable::ExpressTable()
 {
+	//清零指针，以防乱指
 	memset(MyCells, 0, sizeof(MyCells));
+
 	const char FileName[20] = "Cells.dat";
-	
+	//按二进制读取文件方式打开文件
 	ifstream fin(FileName, ios::in | ios::binary);
+
+	//如果能打开说明之前保存了数据
 	if (fin.is_open()) 
 	{
 		for (int i = 0; i < MAXN; i++) {
+			//依次new新对象并读取数据
 			MyCells[i] = new ExpressCell;
+			//强制类型转换以完成数据块读取
 			fin.read((char*)MyCells[i], sizeof(ExpressCell));
 
 		}
 	}
+	//不能打开就说明之前没有保存数据
 	else 
 	{
 		for (int i = 0; i < MAXN; i++)
@@ -63,6 +71,7 @@ bool ExpressTable::IsEmpty()
 }
 void ExpressTable::Show()
 {
+	//首先检查快递柜是否为空，为空就输出错误信息并返回
 	if (IsEmpty()) {
 		system("cls");
 		cout << "柜内没有快递！" << endl;
@@ -70,14 +79,23 @@ void ExpressTable::Show()
 		Sleep(1000);
 		return;
 	}
+
+	//给比较函数这个类型取个别名为pCmp
 	typedef bool (*pCmp)(ExpressCell*, ExpressCell*);
 	//map键值对用于存储比较函数的函数指针
 	map<string, pCmp> mp;
-	mp["1"] = Compare::CompanyNameAscendingCmp;		mp["6"] = Compare::CompanyNameDescendingCmp;
-	mp["2"] = Compare::OwnerNameAscendingCmp;		mp["7"] = Compare::OwnerNameDescendingCmp;
-	mp["3"] = Compare::PhoneNumberAscendingCmp;		mp["8"] = Compare::PhoneNumberDescendingCmp;
-	mp["4"] = Compare::IndexAscendingCmp;			mp["9"] = Compare::IndexDescendingCmp;
-	mp["5"] = Compare::TimeAscendingCmp;			mp["10"] = Compare::TimeDescendingCmp;
+
+	//对函数指针完成赋值
+	mp["1"] = Compare::CompanyNameAscendingCmp;		
+	mp["6"] = Compare::CompanyNameDescendingCmp;
+	mp["2"] = Compare::OwnerNameAscendingCmp;		
+	mp["7"] = Compare::OwnerNameDescendingCmp;
+	mp["3"] = Compare::PhoneNumberAscendingCmp;		
+	mp["8"] = Compare::PhoneNumberDescendingCmp;
+	mp["4"] = Compare::IndexAscendingCmp;			
+	mp["9"] = Compare::IndexDescendingCmp;
+	mp["5"] = Compare::TimeAscendingCmp;			
+	mp["10"] = Compare::TimeDescendingCmp;
 
 
 	while (true)
@@ -87,8 +105,11 @@ void ExpressTable::Show()
 			<< "3(8).按收件人手机号码升序(降序)排序" << endl << "4(9).按快递柜编号升序(降序)排序" << endl
 			<< "5(10).按入库时间从早到晚(从晚到早)排序" << endl << "0.返回" << endl;
 
+		//操作数
 		string op;
-		cin >> op;
+		getline(cin, op);
+
+		//返回
 		if (op == "0") 
 		{
 			return;
@@ -104,12 +125,14 @@ void ExpressTable::Show()
 			sort(MyCells, MyCells + MAXN, mp[op]);
 			system("cls");
 
+			//依次打印信息
 			for (int i = 0; MyCells[i]->Timer != 0; i++) {
 				MyCells[i]->PrintInfo();
 			}
 			system("pause");
 		}
 	}
+
 	//还原
 	sort(MyCells, MyCells + MAXN, Compare::ResetCmp);
 }
@@ -123,18 +146,25 @@ void ExpressTable::WriteLog(int mode, int Postion,char* time)
 		cout << "日志文件打开失败！" << endl;
 	}
 	string s[2] = { "取出快递: ","放入快递: " };
-	fout << s[mode] << " 姓名：" << MyCells[Postion]->Express.OwnerName << "  电话号码：" << MyCells[Postion]->Express.PhoneNumber
-		<< "  快递公司: " << MyCells[Postion]->Express.CompanyName << "  操作时间：" << time << endl;
+
+	//将相关信息写入文件
+	fout << s[mode] << " 姓名:" << left << setw(10) << MyCells[Postion]->Express.OwnerName << " 电话号码:" << left << setw(15)
+		<< MyCells[Postion]->Express.PhoneNumber << "快递公司:" << left << setw(15) << MyCells[Postion]->Express.CompanyName
+		<< "操作时间:" << left << setw(20) << time << endl;
 	fout.close();
 }
 void ExpressTable::Save() 
 {
 
 	const char FileName[20] = "Cells.dat";
+
+	//以二进制方式打开文件
 	ofstream fout(FileName, ios::out | ios::binary);
+
 	if (fout.is_open()) 
 	{
 		for (int i = 0; i < MAXN; i++) {
+			//强制类型转换以完成数据块的写入
 			fout.write((char*)MyCells[i], sizeof(ExpressCell));
 		}
 	}
@@ -143,8 +173,10 @@ void ExpressTable::Save()
 }
 ExpressTable::~ExpressTable()
 {
+	//析构之前先保存数据
 	Save();
 	for (int i = 0; i < MAXN; i++) {
+		//delete之前先检查指针是否指向NULL
 		if (MyCells[i])delete (MyCells[i]);
 	}
 }
