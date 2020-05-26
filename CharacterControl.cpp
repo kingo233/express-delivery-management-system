@@ -176,7 +176,7 @@ void CharacterControl::PasswordSet()
 		cout << "请设置管理员密码：" << endl;
 
 		//第一次输入密码
-		getline(cin,Password);
+		cin >> Password;
 		//输入为零返回主界面
 
 		if (Password == "0") return;
@@ -184,7 +184,7 @@ void CharacterControl::PasswordSet()
 		{
 			//第二次确认密码
 			cout << "请确认密码：" << endl;
-			getline(cin,PasswordSure);
+			cin >> PasswordSure;
 
 			if (Password == PasswordSure)
 			{
