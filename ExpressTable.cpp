@@ -8,7 +8,7 @@
 #include <fstream>
 #include <string>
 #include <map>
-#include<iomanip>
+#include <iomanip>
 #include <algorithm>
 using namespace std;
 ExpressTable::ExpressTable()
