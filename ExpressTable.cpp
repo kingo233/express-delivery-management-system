@@ -23,7 +23,8 @@ ExpressTable::ExpressTable()
 	//如果能打开说明之前保存了数据
 	if (fin.is_open()) 
 	{
-		for (int i = 0; i < MAXN; i++) {
+		for (int i = 0; i < MAXN; i++) 
+		{
 			//依次new新对象并读取数据
 			MyCells[i] = new ExpressCell;
 			//强制类型转换以完成数据块读取
@@ -64,7 +65,8 @@ int  ExpressTable::IsFull()
 }
 bool ExpressTable::IsEmpty()
 {
-	for (int i = 0; i < MAXN; i++) {
+	for (int i = 0; i < MAXN; i++) 
+	{
 		if (MyCells[i]->Timer != 0)return false;
 	}
 	return true;
@@ -72,7 +74,8 @@ bool ExpressTable::IsEmpty()
 void ExpressTable::Show()
 {
 	//首先检查快递柜是否为空，为空就输出错误信息并返回
-	if (IsEmpty()) {
+	if (IsEmpty()) 
+	{
 		system("cls");
 		cout << "柜内没有快递！" << endl;
 		//暂停以便于用户看清错误信息
@@ -126,7 +129,8 @@ void ExpressTable::Show()
 			system("cls");
 
 			//依次打印信息
-			for (int i = 0; MyCells[i]->Timer != 0; i++) {
+			for (int i = 0; MyCells[i]->Timer != 0; i++) 
+			{
 				MyCells[i]->PrintInfo();
 			}
 			system("pause");
@@ -163,7 +167,8 @@ void ExpressTable::Save()
 
 	if (fout.is_open()) 
 	{
-		for (int i = 0; i < MAXN; i++) {
+		for (int i = 0; i < MAXN; i++) 
+		{
 			//强制类型转换以完成数据块的写入
 			fout.write((char*)MyCells[i], sizeof(ExpressCell));
 		}
@@ -175,9 +180,11 @@ ExpressTable::~ExpressTable()
 {
 	//析构之前先保存数据
 	Save();
-	for (int i = 0; i < MAXN; i++) {
+	for (int i = 0; i < MAXN; i++) 
+	{
 		//delete之前先检查指针是否指向NULL
 		if (MyCells[i])delete (MyCells[i]);
+
 	}
 }
 bool ExpressTable::PlaceExpress(int Postion) 

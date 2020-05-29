@@ -213,7 +213,8 @@ void CharacterControl::ReadLog()
 
 	ifstream inf;
 	inf.open("log.txt", ios::in);
-	if (!inf.is_open()) {
+	if (!inf.is_open())
+	{
 		cout << "日志为空！" << endl;
 	}
 
@@ -292,7 +293,6 @@ void CharacterControl::Adminstrator(ExpressTable& Table)
 			Sleep(1000);
 		}
 	}
-	
 }
 void CharacterControl::UISettingSave(string color) 
 {
@@ -335,7 +335,8 @@ void CharacterControl::UISettingLoad()
 }
 void CharacterControl::UISetting()
 {
-	while (true) {
+	while (true) 
+	{
 		system("cls");
 		//提示用户输入设置信息
 		cout << "请按以下信息设置字体背景颜色（背景颜色在前，字体颜色在后，字母不区分大小写）：" << endl << "0 = 黑色     8 = 灰色" << endl
@@ -370,7 +371,8 @@ void CharacterControl::UISetting()
 			system("cls");
 			break;
 		}
-		else {
+		else 
+		{
 			//不合法时提示用户
 			system("cls");
 			cout << "请输入正确的操作数！";
