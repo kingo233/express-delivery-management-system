@@ -161,7 +161,9 @@ bool CharacterControl::IsPasswordCorrect()
 		}
 	}
 }
-void CharacterControl::PasswordSet() 
+
+//设置密码函数，失败返回false
+bool CharacterControl::PasswordSet() 
 {
 	//第一遍输入的密码和确认的密码
 	string Password, PasswordSure;
@@ -176,7 +178,7 @@ void CharacterControl::PasswordSet()
 		cin >> Password;
 		//输入为零返回主界面
 
-		if (Password == "0") return;
+		if (Password == "0") return false;
 		else 
 		{
 			//第二次确认密码
@@ -205,6 +207,7 @@ void CharacterControl::PasswordSet()
 			}
 		}
 	}
+	return true;
 }
 
 void CharacterControl::ReadLog()
