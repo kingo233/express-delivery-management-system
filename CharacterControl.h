@@ -24,7 +24,7 @@ public:
 	//验证密码是否正确的函数，通过读文件比较字符串完成
 	static bool IsPasswordCorrect();
 	//设置密码的函数，写文件
-	static void PasswordSet();
+	static bool PasswordSet();
 	//读取日志，读文件
 	static void ReadLog();
 

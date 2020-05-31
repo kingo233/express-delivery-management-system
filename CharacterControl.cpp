@@ -16,7 +16,7 @@ void CharacterControl::ExpressMan(ExpressTable& Table)
 
 
 		string op;
-		getline(cin, op);
+		cin >> op;
 
 		if (op == "1")
 		{
@@ -72,7 +72,7 @@ void CharacterControl::Receiver(ExpressTable& Table)
 
 		//操作数
 		string op;
-		getline(cin, op);
+		cin >> op;
 		if (op == "1")
 		{
 			system("cls");
@@ -80,14 +80,11 @@ void CharacterControl::Receiver(ExpressTable& Table)
 			//代表取出快递的数量
 			int flag = 0;
 
-			cout << "请输入姓名" << endl;
+			cout << "请输入姓名和电话号码，空格隔开" << endl;
 			//姓名和电话号码
 			char name[10], phonenumber[20];
 
-			cin.getline(name, 10);
-			cout << "请输入电话号码" << endl;
-			
-			cin.getline(phonenumber, 20);
+			cin >> name >> phonenumber;
 
 			for (int i = 0; i < 500; i++)
 			{
@@ -145,7 +142,7 @@ bool CharacterControl::IsPasswordCorrect()
 		cout << "请输入管理员密码：" << endl;
 
 		//验证密码
-		getline(cin,Password);
+		cin >> Password;
 
 		//输入为零返回主界面
 		if (Password == "0") return false;
@@ -164,7 +161,9 @@ bool CharacterControl::IsPasswordCorrect()
 		}
 	}
 }
-void CharacterControl::PasswordSet() 
+
+//设置密码函数，失败返回false
+bool CharacterControl::PasswordSet() 
 {
 	//第一遍输入的密码和确认的密码
 	string Password, PasswordSure;
@@ -173,18 +172,18 @@ void CharacterControl::PasswordSet()
 	{
 		system("cls");
 		cout << "0.返回主菜单" << endl;
-		cout << "请设置管理员密码：" << endl;
+		cout << "请设置管理员密码(不带有空格)：" << endl;
 
 		//第一次输入密码
-		getline(cin,Password);
+		cin >> Password;
 		//输入为零返回主界面
 
-		if (Password == "0") return;
+		if (Password == "0") return false;
 		else 
 		{
 			//第二次确认密码
 			cout << "请确认密码：" << endl;
-			getline(cin,PasswordSure);
+			cin >> PasswordSure;
 
 			if (Password == PasswordSure)
 			{
@@ -208,6 +207,7 @@ void CharacterControl::PasswordSet()
 			}
 		}
 	}
+	return true;
 }
 
 void CharacterControl::ReadLog()
@@ -216,7 +216,8 @@ void CharacterControl::ReadLog()
 
 	ifstream inf;
 	inf.open("log.txt", ios::in);
-	if (!inf.is_open()) {
+	if (!inf.is_open())
+	{
 		cout << "日志为空！" << endl;
 	}
 
@@ -251,7 +252,7 @@ void CharacterControl::Adminstrator(ExpressTable& Table)
 
 	if (Exist == 0)
 	{
-		PasswordSet();
+		if (!PasswordSet())return;
 	}
 	else
 	{
@@ -295,7 +296,6 @@ void CharacterControl::Adminstrator(ExpressTable& Table)
 			Sleep(1000);
 		}
 	}
-	
 }
 void CharacterControl::UISettingSave(string color) 
 {
@@ -338,7 +338,8 @@ void CharacterControl::UISettingLoad()
 }
 void CharacterControl::UISetting()
 {
-	while (true) {
+	while (true) 
+	{
 		system("cls");
 		//提示用户输入设置信息
 		cout << "请按以下信息设置字体背景颜色（背景颜色在前，字体颜色在后，字母不区分大小写）：" << endl << "0 = 黑色     8 = 灰色" << endl
@@ -350,7 +351,7 @@ void CharacterControl::UISetting()
 
 		//操作数
 		string cop;
-		getline(cin,cop);
+		cin >> cop;
 
 		//输入为零返回主界面
 		if (cop == "0") return;
@@ -373,7 +374,8 @@ void CharacterControl::UISetting()
 			system("cls");
 			break;
 		}
-		else {
+		else 
+		{
 			//不合法时提示用户
 			system("cls");
 			cout << "请输入正确的操作数！";
