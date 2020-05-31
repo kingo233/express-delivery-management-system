@@ -1,9 +1,11 @@
 #include "ExpressCell.h"
 #include <cstdio>
-ExpressCell::ExpressCell() :Index(0), Timer(0), StrTime(""), Express() {
+ExpressCell::ExpressCell() :Index(0), Timer(0), StrTime(""), Express()
+{
 
 }
-ExpressCell::~ExpressCell() {
+ExpressCell::~ExpressCell() 
+{
 
 }
 
