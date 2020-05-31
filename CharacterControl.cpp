@@ -252,7 +252,7 @@ void CharacterControl::Adminstrator(ExpressTable& Table)
 
 	if (Exist == 0)
 	{
-		PasswordSet();
+		if (!PasswordSet())return;
 	}
 	else
 	{
